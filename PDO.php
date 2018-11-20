@@ -4,7 +4,7 @@ $PARAM_hote='localhost';
 $PARAM_port='8081';
 $PARAM_nom_bd='mrbs';
 $PARAM_utilisateur='root';
-$PARAM_mot_passe='mdp';
+$PARAM_mot_passe='root';
 
 try
 {
