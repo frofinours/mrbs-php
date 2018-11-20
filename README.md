@@ -1,9 +1,15 @@
 Adresse IP du serveur linux: http://172.17.21.14/
 
-phpMyAdmin
+
+
+## phpMyAdmin
+```
 id: root
 mdp: mdp
+```
 
-Appli
+## Appli
+```
 id: admin
 mdp: admin
+```
