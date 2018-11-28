@@ -8,7 +8,7 @@
 <button onclick="myTest()">test js</button> <!--On teste vite fait si le javascript est bien présent et fonctionnel -->
 <br />
 <br />
-    <form action="[à changer].php" method="post" id="myForm">
+    <form action="lgperitpretipreit.php" method="post" id="myForm">
 
     <label class="test" for="mail">Adresse mail : </label>
     <input type="text" id="mail" name="mail"><br /><br />
@@ -20,3 +20,5 @@
  </form>
 <script src="VerifAuthentification.js"></script>
 </body>
+
+</html>
