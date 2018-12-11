@@ -1,7 +1,7 @@
 
 <?php
 try {
-    $dbh = new PDO('mysql:host=localhost;dbname=mrbs-php', $user, $pass);
+    $dbh = new PDO('mysql:host=172.17.21.14;dbname=mrbs-php', $user, $pass);
     foreach($dbh->query('SELECT * from Utilisateurs') as $row) {
         print_r($row);
     }
@@ -10,4 +10,6 @@ try {
     print "Erreur de connexion: " . $e->getMessage() . "<br/>";
     die();
 }
+//$_GET['URL précédente à placer']
+
 ?>
