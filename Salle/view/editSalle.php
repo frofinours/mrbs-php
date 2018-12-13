@@ -1,7 +1,7 @@
 <script type="text/javascript" src="../controller/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="../controller/css/style.css" media="screen" />
-
-
+ 
+<script src="../controller/js/scripts.js"></script>
 
  <head>
 
@@ -12,16 +12,16 @@
 
      <h2>Modifier une salle</h2>Salle : </div>
 
-  <select id="roomname" name="salle" value="">
+  <select id="roomname" name="salle" value="" onchange='setResults()'>
     <option value="">--Choisissez une salle--</option>
 <?php
     include '..\model\requetes.php';
 
     $salles = getSalles();
-    // var_dump($test);
+ 
     foreach($salles as $salle)
       {
-        echo "<option value='".$salle->id."'>".$salle->room_name."</option>";
+        echo "<option value='".$salle->room_name."'>".$salle->room_name."</option>";
       }
 ?>
   </select><br>
@@ -43,19 +43,5 @@
     <div id="buttons"><input type='submit' id='buttonCreer' value="Modifier la salle" onclick="" disabled="true"/>
   <br><br>
 
-  <script type="text/javascript">
 
 
-  $('select[name="salle"]').change(function() {
-
-    alert($(this).val());
-
-    // alert($(this).val());
-    // alert(area);
-
-
-    // var areaId = getArea($(this).val()->room_name);
-
-
-  });
-  </script>

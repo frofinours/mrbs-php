@@ -4,7 +4,7 @@
 
  <?php
 
- include '../view/affiche.php';
+ include '../view/afficheTEST.php';
 
  ?>
 
