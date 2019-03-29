@@ -1,0 +1,109 @@
+body {
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+h1{
+	font-family: fantasy;
+	color: rgba(241, 191, 52, 1);
+}
+
+h2{
+	font-family: fantasy;
+	color: rgba(201, 151, 12, 1);
+}
+
+b {
+	font-family: fantasy;
+}
+
+p{
+	font-family: fantasy;
+}
+
+label{
+    font-family: fantasy;
+}
+
+.test {
+  font-family: fantasy;
+}
+
+input {
+
+    padding: 2px;
+    border: 1px solid #CCC;
+    border-radius: 2px;
+    outline: none;
+
+}
+
+input:focus {
+
+    border-color: rgba(82, 168, 236, 0.75);
+    box-shadow: 0 0 8px rgba(82, 168, 236, 0.5);
+}
+.correct {
+
+    border-color: rgba(68, 191, 68, 0.75);
+}
+
+.correct:focus {
+
+    border-color: rgba(68, 191, 68, 0.75);
+    box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+}
+
+.incorrect {
+
+    border-color: rgba(191, 68, 68, 0.75);
+}
+
+
+.incorrect:focus {
+
+    border-color: rgba(191, 68, 68, 0.75);
+ 	box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+}
+
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+	font-family: fantasy;
+	text-align: center;
+}
+table td, table th {
+  	border: 1px solid black;
+  	text-align: center;
+}
+
+.valid {
+
+	background-color: rgba(100, 190, 260, 0.9);
+
+}
+
+img{
+	max-height: 8%;
+	max-width: 8%;
+	position: relative;
+}
+
+#id_search {
+	width: 300px;
+}
+
+form.quicksearch {
+	padding: 10px;
+	background: #f7f7f7;
+}
+
+form.quicksearch input {
+	margin-left: 5px;
+	width: 300px;
+	 }
+
+form.quicksearch img {
+	vertical-align: middle;
+	margin-left: 5px;
+	 }

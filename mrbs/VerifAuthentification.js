@@ -1,25 +1,21 @@
-function myTest(){
-    alert("Ca marche");
-}
-//bouton fait vite fait pour tester si le script répond bien
 
 ////////// CHECK ///////////
 var check = {};
 
-/* check['mdp'] = function(id){ //on met juste id comme ça on peut réutiliser la fonction sur les autres textbox
-	var name = document.getElementById(id),
+check['mdp'] = function(id){ //on met juste id comme ça on peut réutiliser la fonction sur les autres textbox
+	var mdp = document.getElementById(id),
         //numberTest = /\d/; //Pour tester la présence des nombres
-	if (name.value.length < 3 ||  numberTest.test(name.value) === true)
+	if (mdp.value == null)
 	{
-		name.className = 'incorrect';
+		mdp.className = 'incorrect';
 		return false;
 	}
 	else
 	{
-		name.className='correct';
+		mdp.className='correct';
 		return true;
 	}
-}; */
+}; 
 
 
 /* check['mail'] = function(id){
