@@ -5,7 +5,7 @@ try {
     foreach($dbh->query('SELECT '$user', '$mdp' from Utilisateurs') as $row) {
         print_r($row);
     }
-    $dbh = null;
+    //$dbh = null;
 } catch (PDOException $e) {
     print "Erreur de connexion: " . $e->getMessage() . "<br/>";
     die();
