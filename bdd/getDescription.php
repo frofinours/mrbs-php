@@ -1,8 +1,12 @@
 <?php
     include 'PDO.php';
+
     $room_name = $_POST['name'];
     if(isset($room_name)){
+
             $requete = "SELECT area_name FROM mrbs_area INNER JOIN mrbs_room ON mrbs_area.id = mrbs_room.area_id  WHERE room_name = '".$room_name."' ;";
+            
+
             $type = null;
             try {
                 $resultat = $connexion->query($requete);

@@ -1,0 +1,33 @@
+@font-face {
+	 font-family: 'SF-UI-Display-Regular';
+	 src: 		  url('SF-UI-Display-Regular.ttf') format('truetype'),
+   url('SF-UI-Display-Regular.otf')
+    format('otf');
+}
+
+html{
+	font-family: 'SF-UI-Display-Regular';
+}
+
+body{
+	background-color:lightgrey;
+	height:300px;
+}
+
+#bandeau{
+	box-shadow: grey 10px 10px 25px;
+	background-image: linear-gradient(to left bottom, rgb(255, 187, 0),rgb(255, 0, 0) );
+	height:500px;
+}
+
+#buttons{
+	margin-left:25px;
+}
+
+#title{
+	margin-left:25px;
+}
+#formuCreerSalle, #roomname{
+	margin-left:25px;
+}
+

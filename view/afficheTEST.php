@@ -1,6 +1,6 @@
 <?php
 
-include '../model/PDO.php';
+include './bdd/PDO.php';
 //on se connecte à la base de donnée de la ferme
 
 $SQL = "SELECT * FROM mrbs_room WHERE area_id = '2'";
