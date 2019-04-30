@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/style.css" media="screen" />
+<link rel="stylesheet" href="/css/style.css" media="screen" />
  <head>
 
      <title>Voir les salles</title>
