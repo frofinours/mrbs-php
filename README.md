@@ -8,8 +8,16 @@ id: root
 mdp: mdp
 ```
 
+## WinSCP
+```
+id: root
+mdp: mdp
+```
+
 ## Appli
 ```
 id: admin
 mdp: admin
 ```
+
+
