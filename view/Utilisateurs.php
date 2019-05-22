@@ -26,7 +26,7 @@
                 <th>id</th>
                 <th>Nom</th>
                 <th>Email</th>
-                <th>Supprimé?</th>
+                <th>Supprimé</th>
             </tr>
         </thead>
         <tbody>
@@ -47,7 +47,7 @@
                         if ($users['dateSuppression'] == null) {
                             echo ("Non");
                         } else {
-                            echo ("Oui");
+                            echo $users['dateSuppression'];
                         }
                         ?>
                     </center>
