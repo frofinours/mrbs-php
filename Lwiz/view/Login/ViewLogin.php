@@ -7,23 +7,23 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <!-- <script src="js/utilisateur.js"></script> -->
 </head>
-    <body>
-        <form id="FormLogin" action="?action=ConnexionU" method="POST">
-            <p>
-                <label>Utilisateur</label>
-                <input id="username" value="" name="username" type="text" required="required" /><br>
-            </p>
-            <p>
-                <label>Mot de passe</label>
-                <input id="password" name="password" type="password" required="required" />
-            </p>
-              <br />
-            <p>
-               <input type="submit" value="Se connecter">
-               <input type="reset" value="Effacer">
-            </p>
-        </form>
-        <!-- <script src="checkLogin.js"></script> -->
+    <body class="formulaire">
+        <div class="formLogin">
+            <div class="Portail">        
+                <form id="FormLogin" action="?action=ConnexionU" method="POST">
+                    <p>
+                        <input id="username" value="" name="username" type="text" required="required" placeholder="Utilisateur"/><br>
+                    </p>
+                    <p>
+                        <input id="password" name="password" type="password" required="required" placeholder="Mot de passe"/>
+                    </p>
+                      <br />
+                    <p>
+                       <input class="bouton" type="submit" value="Se connecter">
+                    </p>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
  

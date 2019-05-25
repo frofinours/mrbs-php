@@ -10,7 +10,6 @@
 
     <?php 
     $theRow = $login->fetch(); 
-    var_dump($theRow);
 
     //Le $login->fetch() retourne un bool false si la requête ne retourne rien
     if($theRow == false)
@@ -23,12 +22,11 @@
     {
         //On définie un cookie Utilisateur contenant le nom de l'utilisateur
         //Avec 5min avant expiration
-        setcookie('Utilisateur',$theRow[0],time()+300);
+        setcookie('Utilisateur',$theRow[0],time()+900);
         $_COOKIE['Utilisateur'] = $theRow[0];
-        var_dump($_COOKIE['Utilisateur']);
         require('view/template/Header.php'); 
         ?>
-        <body>
+        <body class="Accueil">
             <p>Bienvenue 
             <?php 
             echo $_COOKIE['Utilisateur'];

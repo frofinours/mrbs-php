@@ -1,4 +1,4 @@
-<?php
+ <?php /*
 //require_once('view/View.php');
 class Router
 {
@@ -73,4 +73,5 @@ class Router
             //$this->_view->generate(array('errorMsg' => $errorMsg));
         }
     }
-}
+} */
+?>

@@ -32,9 +32,7 @@ function login($username, $password)
 {
 	//On passe le mot de passe en MD5 pour la requête
 	$password = md5($password);
-	var_dump($password);
 	$result = connexionBDD()->query("SELECT name, password FROM mrbs_users WHERE name = '".$username."' AND password = '".$password."'");
-	var_dump($result);
 	return $result;
 }
 

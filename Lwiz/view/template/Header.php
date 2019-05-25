@@ -1,19 +1,27 @@
-<header>
+<header class="Entete">
     <?php 
     //On vérifie l'existence du cookie
     if (isset($_COOKIE['Utilisateur']) && $_COOKIE['Utilisateur'] != null)
     {
-        echo "
-        <div id='userBanner'>
-            <p>", $_COOKIE['Utilisateur'] , "</p>
-            <form id='btnDeconnexion' method='POST' action='?action=DeconnexionU'>
-                <input type='submit' value='Se déconnecter'>
-            </form> 
+        setcookie('Utilisateur',$theRow[0],time()+300);
+        echo "",'
+        <div class="userBanner">',"
             <nav class='menu' id='SessionU'>
                 <ul>
+                    <li><a href='#'>Home</a></li>
                     <li><a href='#'>Utilisateurs</a></li>
                     <li><a href='#'>Salles</a></li>
                     <li><a href='#'>Associations</a></li>
+                    <span id='ProfilU'>
+                        <li>
+                        <span class='pseudo'>", $_COOKIE['Utilisateur'] , "</span>
+                        </li>
+                        <li>
+                            <form id='btnDeconnexion' method='POST' action='?action=DeconnexionU'>
+                                <input type='submit' value='Se déconnecter'>
+                            </form>
+                        </li>
+                    </span>
                 </ul>
             </nav>
         </div>";
