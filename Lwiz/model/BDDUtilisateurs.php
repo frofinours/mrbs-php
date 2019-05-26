@@ -40,7 +40,21 @@ function login($username, $password)
 function logout()
 {
 	//On supprime le cookie existant
-	unset($_COOKIE['Utilisateur']);
+	setcookie('Utilisateur', 'truc', time()-1);
+}
+
+function isAdmin($username){
+	$req = connexionBDD()->query("SELECT name, level FROM mrbs_users WHERE name = '".$username."'");
+	$theRow = $req->fetch();
+	if ($theRow[1] == 2)
+	{
+		$result = true;
+	}
+	else 
+	{
+		$result = false;
+	}
+	return $result;
 }
 
 

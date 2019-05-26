@@ -9,21 +9,6 @@
 </head>
 
     <?php 
-    $theRow = $login->fetch(); 
-
-    //Le $login->fetch() retourne un bool false si la requête ne retourne rien
-    if($theRow == false)
-    {
-        //On le renvoie à la page d'origine
-        echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
-    }
-    //Si la requête a renvoyé une ligne
-    else
-    {
-        //On définie un cookie Utilisateur contenant le nom de l'utilisateur
-        //Avec 5min avant expiration
-        setcookie('Utilisateur',$theRow[0],time()+900);
-        $_COOKIE['Utilisateur'] = $theRow[0];
         require('view/template/Header.php'); 
         ?>
         <body class="Accueil">
@@ -32,8 +17,8 @@
             echo $_COOKIE['Utilisateur'];
             ?>
             </p>
+            <br />
         </body> <?php
-    }
     ?>
 
 </html>

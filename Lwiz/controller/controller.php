@@ -4,7 +4,20 @@
         require('model/PDO.php');
         require('model/BDDUtilisateurs.php');
         $login = login($username, $password);
-        require('view/Login/ViewAfterLogin.php');
+        $theRow = $login->fetch();
+        setcookie('Utilisateur',$theRow[0],time()+900);
+        $_COOKIE['Utilisateur'] = $theRow[0];
+        if($theRow == false)
+        {
+            //On le renvoie à la page d'origine
+            echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
+        }
+        else
+        {
+            require('view/Login/ViewAfterLogin.php');
+            echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
+        }
+        
     }
 
     function getDeconnexion()
@@ -12,6 +25,11 @@
         require('model/BDDUtilisateurs.php');
         logout();
         echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
+    }
+
+    function getLevel($username){
+        require('model/PDO.php');
+        require('model/BDDUtilisateurs.php');
     }
 
     function getUtilisateurs()
@@ -44,4 +62,6 @@
     {
         deleteUserId($id);
     }
+
+    
 ?>

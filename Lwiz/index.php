@@ -28,7 +28,14 @@ if (isset($_GET['action']))
 }
 else
 {
-    require('view/Login/ViewLogin.php');
+    if (isset($_COOKIE['Utilisateur']) && $_COOKIE['Utilisateur'] != null)
+    {
+        require('view/Login/ViewAfterLogin.php');
+    }
+    else
+    {
+        require('view/Login/ViewLogin.php');
+    }
     //if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
     //    addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['password']);
     //}
