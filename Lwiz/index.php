@@ -1,13 +1,7 @@
 <?php 
-//define('URL', str_replace("index.php", "", (isset($_SERVER['HTTPS']) ? "https" :   
-//   "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
-
-//require_once('controller/Router.php');
-
-//$router = new Router();
-//$router->routeReq();
 require('controller/controller.php');
 
+//On vérifie si une action existe
 if (isset($_GET['action'])) 
 {
     if ($_GET['action'] == 'utilisateurs') {
@@ -28,12 +22,15 @@ if (isset($_GET['action']))
 }
 else
 {
+    //On vérifie l'existence d'un cookie
     if (isset($_COOKIE['Utilisateur']) && $_COOKIE['Utilisateur'] != null)
     {
+        //Page d'accueil
         require('view/Login/ViewAfterLogin.php');
     }
     else
     {
+        //Portail de connexion
         require('view/Login/ViewLogin.php');
     }
     //if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {

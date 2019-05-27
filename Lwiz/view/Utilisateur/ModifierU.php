@@ -13,7 +13,7 @@
 <body class="formulaire">
     <div class="form">
         <h1>Modifier un utilisateur</h1>
-        <form id="formulaireModifierU" method="post" action="editUser">
+        <form id="formulaireModifierU" method="post" action="?action=ModifierU">
             <label>Séléctionnez l'utilisateur à modifier.</label><select id="user">
 
             </select>

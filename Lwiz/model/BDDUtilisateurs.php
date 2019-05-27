@@ -39,14 +39,17 @@ function login($username, $password)
 //Déconnexion
 function logout()
 {
-	//On supprime le cookie existant
-	setcookie('Utilisateur', 'truc', time()-1);
+	//On met le timer du cookie à -1 pour le faire expirer immédiatement et le "détruire"
+	setcookie('Utilisateur', 'Somebody once told me', time()-1);
+	setcookie('Level', 'The world is gonna roll me', time()-1);
 }
 
+//Vérification des droits
 function isAdmin($username){
-	$req = connexionBDD()->query("SELECT name, level FROM mrbs_users WHERE name = '".$username."'");
+	$req = connexionBDD()->query("SELECT level FROM mrbs_users WHERE name = '".$username."'");
 	$theRow = $req->fetch();
-	if ($theRow[1] == 2)
+	//On vérifie sur le level est admin ou non
+	if ($theRow[0] == 2)
 	{
 		$result = true;
 	}

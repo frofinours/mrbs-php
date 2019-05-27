@@ -19,6 +19,7 @@
     <script src="js/utilisateur.js"></script>
 </head>
 
+
 <body>
     <table id="userList" class="display">
         <thead>
@@ -26,37 +27,35 @@
                 <th>id</th>
                 <th>Nom</th>
                 <th>Email</th>
-                <th>Supprimé?</th>
+                <th>Supprimé</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            while ($users = $userList->fetch()) {
+            while ($users = $userList->fetch()) 
+            {
                 ?>
-            <tr>
-                <td> <?php echo $users['id']; ?> </td>
-                <td>
-                    <center><?php echo $users['name']; ?></center>
-                </td>
-                <td>
-                    <center><?php echo $users['email']; ?></center>
-                </td>
-                <td>
-                    <center>
+                <tr>
+                    <td> <?php echo $users['id']; ?> </td>
+                    <td>
+                        <?php echo $users['name']; ?>
+                    </td>
+                    <td>
+                        <?php echo $users['email']; ?>
+                    </td>
+                    <td>
                         <?php 
                         if ($users['dateSuppression'] == null) {
                             echo ("Non");
                         } else {
-                            echo ("Oui");
+                            $users['dateSuppression'];
                         }
                         ?>
-                    </center>
-                </td>
-            </tr>
-            <?php
-
-        }
-        ?>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
         </tbody>
     </table>
     <?php

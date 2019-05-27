@@ -1,5 +1,4 @@
 <html>
-    
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +11,11 @@
         require('view/template/Header.php'); 
         ?>
         <body class="Accueil">
+            <br /><br />
             <p>Bienvenue 
             <?php 
             echo $_COOKIE['Utilisateur'];
+            var_dump($_COOKIE['Level']);
             ?>
             </p>
             <br />
