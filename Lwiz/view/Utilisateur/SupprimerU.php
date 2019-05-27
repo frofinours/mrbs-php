@@ -6,7 +6,7 @@
     <title>Supprimer utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
-    <script src="../js/utilisateur.js"></script>
+    <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
 <body>
     <div class="form">

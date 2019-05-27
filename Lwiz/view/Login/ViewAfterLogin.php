@@ -9,13 +9,13 @@
 
     <?php 
         require('view/template/Header.php'); 
+        //TODO: Fix le CSS un jour. Peut-être. J'vais sûrement le pomper sur internet mdr. 
         ?>
         <body class="Accueil">
             <br /><br />
             <p>Bienvenue 
             <?php 
             echo $_COOKIE['Utilisateur'];
-            var_dump($_COOKIE['Level']);
             ?>
             </p>
             <br />

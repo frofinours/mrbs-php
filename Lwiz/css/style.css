@@ -90,8 +90,13 @@ label {
   font-family: "Roboto", sans-serif;
   float: right;
   color: white;
+  margin: 10px;
   
 } 
+
+#btnDeconnexion{
+  margin: 10px;
+}
 
 .menu nav{
   font-family: "Roboto", sans-serif;

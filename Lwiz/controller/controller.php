@@ -2,18 +2,22 @@
     function getConnexion($username, $password)
     {
         require('model/PDO.php');
-        require('model/BDDUtilisateurs.php');
+        require('model/fonctions.php');
         $login = login($username, $password);
         $theRow = $login->fetch();
         if($theRow == false)
         {
-            //On le renvoie à la page d'origine
+            //On le renvoie au portail de connexion si la requête a retourné false
             echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
         }
         else
         {
+            //On paramètre les cookies Utilisateurs, qui expireront au bout de 15min
             setcookie('Utilisateur',$theRow[0],time()+900);
             $_COOKIE['Utilisateur'] = $theRow[0];
+            //On va chercher le niveau de l'utilisateur
+            //on renvoie un true/false en fonction de si l'utilisateur est admin ou non
+            //Et on stock la valeur dans un cookie pour pouvoir l'appeler plus tard
             $isAdmin = isAdmin($username);
             setcookie('Level', $isAdmin, time()+900);
             $_COOKIE['Level'] = $isAdmin;
@@ -27,22 +31,15 @@
 
     function getDeconnexion()
     {
-        require('model/BDDUtilisateurs.php');
+        require('model/fonctions.php');
         logout();
         echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
     }
 
-  /*  function getLevel($username){
-        require('model/PDO.php');
-        require('model/BDDUtilisateurs.php');
-        $isAdmin = isAdmin($username);
-
-    } */
-
     function getUtilisateurs()
     {
         require('model/PDO.php');
-        require('model/BDDUtilisateurs.php');
+        require('model/fonctions.php');
         $userList = getUsers();
         require('view/Utilisateur/Utilisateurs.php');
     }
@@ -55,7 +52,7 @@
     function addUtilisateurBDD($name, $email, $password)
     {
         require('model/PDO.php');
-        require('model/BDDUtilisateurs.php');
+        require('model/fonctions.php');
         addUser($name, $email, $password);
     }
 

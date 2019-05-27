@@ -9,7 +9,7 @@
                 <ul>
                     <li><a href='?action=utilisateurs'>Utilisateurs</a></li>
                     <li><a href='#'>Salles</a></li>
-                    <li><a href='#'>Associations</a></li>
+                    <li><a href='?action=menuAssoc'>Associations</a></li>
                     <span id='ProfilU'>
                         <li>
                         <span class='pseudo'><?php echo $_COOKIE['Utilisateur']; ?></span>

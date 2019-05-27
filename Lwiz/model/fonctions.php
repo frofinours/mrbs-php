@@ -40,8 +40,9 @@ function login($username, $password)
 function logout()
 {
 	//On met le timer du cookie à -1 pour le faire expirer immédiatement et le "détruire"
-	setcookie('Utilisateur', 'Somebody once told me', time()-1);
-	setcookie('Level', 'The world is gonna roll me', time()-1);
+	//Et en valeur bah on peut mettre ce qu'on veut vu que le cookie sera instantanément détruit
+	setcookie('Utilisateur', 'Seul Link peut vaincre Ganon', time()-1);
+	setcookie('Level', 'Si vous êtes un ami, vous donnez le mot de SaaS et les portes s´ouvrirons', time()-1);
 }
 
 //Vérification des droits
