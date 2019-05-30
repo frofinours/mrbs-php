@@ -1,4 +1,65 @@
 <?php
+
+    /****** Maxime ******/
+
+    function getUtilisateurs()
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $userList = getUsers();
+        require('view/Utilisateur/Utilisateurs.php');
+    }
+
+    function addUtilisateur()
+    {
+        require('view/Utilisateur/AjouterU.php');
+    }
+
+    function addUtilisateurBDD($name, $email, $password)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        addUser($name, $email, $password);
+    }
+
+    function editUtilisateurId($id)
+    {
+        $usertoEdit = editUserId($id);
+        require('view/Utilisateur/ModifierU.php');
+    }
+
+    function deleteUtilisateurId($id)
+    {
+        deleteUserId($id);
+    }
+
+
+    /****** Cécile ******/
+
+    function menuAssoc() 
+    {
+        require('view/Association/menuAssoc.php');
+    }
+    function creationAssoc()
+    {
+        require('model/PDO.php');
+        //require('js/verif.js');
+        require('model/fonctions.php');
+        
+        $email = getVAluesFromBDD(null, 5, 'mail');
+        $responsable = getValuesFromBDD('mrbs_users', null, null);
+        require('view/Association/creerAssoc.php');
+    }
+    function modifAssoc()
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        require('view/Association/modifAssoc.php');
+    }
+
+
+    /****** Louise ******/
+
     function getConnexion($username, $password)
     {
         require('model/PDO.php');
@@ -36,36 +97,4 @@
         echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
     }
 
-    function getUtilisateurs()
-    {
-        require('model/PDO.php');
-        require('model/fonctions.php');
-        $userList = getUsers();
-        require('view/Utilisateur/Utilisateurs.php');
-    }
-
-    function addUtilisateur()
-    {
-        require('view/Utilisateur/AjouterU.php');
-    }
-
-    function addUtilisateurBDD($name, $email, $password)
-    {
-        require('model/PDO.php');
-        require('model/fonctions.php');
-        addUser($name, $email, $password);
-    }
-
-    function editUtilisateurId($id)
-    {
-        $usertoEdit = editUserId($id);
-        require('view/Utilisateur/ModifierU.php');
-    }
-
-    function deleteUtilisateurId($id)
-    {
-        deleteUserId($id);
-    }
-
-    
 ?>

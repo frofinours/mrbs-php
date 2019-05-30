@@ -18,26 +18,12 @@
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.buttons.min.js"></script>
     <script src="js/dataTables.select.min.js"></script>
-
-    <?php
-    //On vérifie si l'utilisateur est admin (ou non)
-    if ($_COOKIE['Level'] == 1) {
-        ?><script src="js/Utilisateur/utilisateur.js"></script><?php
-    }
-    else
-    {
-        ?><script src="js/Utilisateur/utilisateurNonAdmin.js"></script><?php
-    }    
-    ?>
-
-
-    <!--Zone de Maxime -->
-
+    <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
+
+<?php require('view/template/Header.php'); ?>
+
 <body>
-    <br />
-    <br />
-    <br />
     <table id="userList" class="display">
         <thead>
             <tr>

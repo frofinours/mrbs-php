@@ -10,6 +10,8 @@
     <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
 
+<?php require('view/template/Header.php'); ?>
+
 <body class="formulaire">
     <div class="form">
         <h1>Ajouter un utilisateur</h1>
