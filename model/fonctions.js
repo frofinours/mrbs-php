@@ -24,7 +24,7 @@ function display(name, id){
     }
 }
 
-function setResEmail() {
+/*function setResEmail() {
     var id_res =  document.getElementById('responsable').value; 
     $.ajax({
         url: '../model/getEmail.php',
@@ -35,7 +35,7 @@ function setResEmail() {
         }
         
     });    
-}
+}*/
 
 function sendValuesToBDD(){
     const nom = document.getElementById('assocNom').value;

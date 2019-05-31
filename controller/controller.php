@@ -6,10 +6,9 @@ function menuAssoc()
 function creationAssoc()
 {
     require('model/connexionBDDAssoc.php');
-    //require('js/verif.js');
     require('model/fonctions.php');
     
-    $email = getVAluesFromBDD(null, 5, 'mail');
+    //$email = getVAluesFromBDD(null, 5, 'mail');
     $responsable = getValuesFromBDD('mrbs_users', null, null);
     require('view/creerAssoc.php');
 }
@@ -17,6 +16,8 @@ function modifAssoc()
 {
     require('model/connexionBDDAssoc.php');
     require('model/fonctions.php');
+
+    $associations = getValuesFromBDD('mrbs_league', null, null);
     require('view/modifAssoc.php');
 }
 /*function addUtilisateur()

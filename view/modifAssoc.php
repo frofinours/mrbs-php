@@ -17,10 +17,10 @@
             <!-- <option value="ex1">Exemple 1</option>
             <option value="ex2">Exemple 2</option> -->
             <?php
-                $test = getValuesFromBDD('mrbs_league');
-                foreach($test as $t)
+                
+                foreach($associations as $a)
                 {
-                    echo "<option   value='".$t->id."'>".$t->nom."</option>";
+                    echo "<option   value='".$a->id."'>".$a->nom."</option>";
                 }
             ?>
         </select>
@@ -36,6 +36,7 @@
             <input type="text" id="emailAssoc"      onkeyup="verifMail();"/>
             <input type="button" value="Modifier"  onclick=""/>
         </div>
+                <input type='button' value='Retour' onclick="/*document.location.href='menuAssoc.php'*/window.location='?action=menuAssoc'"/>
 
         <script>
             display('association', 'assocInfos')
