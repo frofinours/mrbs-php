@@ -7,13 +7,7 @@
     <body>
         <h1>Accès interdit</h1>
         <p>Vous n'êtes pas autorisé à consulter cette page.</p>
-        <a id="Return" href="Salut ça va" 
-        onclick="Return();return false;">Retourner à la page d'accueil</a>
+        <a id="Return" href="Salut ça va" onclick="HomeReturn();return false;">Retourner à la page d'accueil</a>
     </body>
-    <script>
-    function Return(){
-        window.location = 'http://127.0.0.1/things/Lwiz/';
-    }
-    </script>
-
+    <script src="js/Template/Redirection.js"></script>
 </html>

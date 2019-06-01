@@ -19,10 +19,9 @@
             <!-- <option value="ex1">Exemple 1</option>
             <option value="ex2">Exemple 2</option> -->
             <?php
-                $test = getValuesFromBDD('mrbs_league');
-                foreach($test as $t)
+                foreach($associations as $a)
                 {
-                    echo "<option   value='".$t->id."'>".$t->nom."</option>";
+                    echo "<option   value='".$a->id."'>".$a->nom."</option>";
                 }
             ?>
         </select>
@@ -32,13 +31,13 @@
             <label>Responsable : </label>
             <input type='text' id='assocRes'/><br/><br/>
             <label>Adresse mail du responsable : </label>
-            <input type="text" id="emailRes"        value=""/>
+            <input type="text" id="emailRes" value=""/>
             <br/><br/>
             <label>Adresse mail : </label>
-            <input type="text" id="emailAssoc"      onkeyup="verifMail();"/>
+            <input type="text" id="emailAssoc"     onkeyup="verifMail();"/>
             <input type="button" value="Modifier"  onclick=""/>
         </div>
-
+        <input type='button' value='Retour' onclick="/*document.location.href='menuAssoc.php'*/window.location='?action=menuAssoc'"/>
         <script>
             display('association', 'assocInfos')
         </script>

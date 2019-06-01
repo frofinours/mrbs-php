@@ -19,7 +19,7 @@
             <label>Nom de l'association : </label>
             <input type='text' id='assocNom'/><br/><br/>
             <label>Sélectionnez le responsable : </label>
-            <select id='responsable' name='id_res' onchange= '' default='' >
+            <select id='responsable' onchange='setResEmail()' default='' >
             <?php
                 
                 foreach($responsable as $r)
@@ -32,17 +32,12 @@
             </select>
             <br/><br/>
             <label>Adresse mail du responsable : </label>
-            <input type="text" id="emailRes"    default="admin.mrbs@lorraine-sport.net"
-            value=
-                <?php
-                    echo $email
-                ?> 
-            />
+            <input type="text" id="emailRes" default="admin.mrbs@lorraine-sport.net"/>
             <br/><br/>
             <label>Adresse mail association : </label>
-            <input type="text" id="emailAssoc"     onkeyup="verifMail();"/><br/><br/>
-            <input type="submit" value="Créer"      onclick="sendValuesToBDD();"/>
-            <input type="button" value="Retour"     onclick="document.location.href='menuAssoc.php'"/>
+            <input type="text" id="emailAssoc"      onkeyup="verifMail();"/><br/><br/>
+            <input type="button" value="Créer"      onclick="sendValuesToBDD();"/>
+            <input type="button" value="Retour"     onclick="document.location.href='menuAssoc.php'*/window.location='?action=menuAssoc'"/>
         </div>
     </form>
 </body>

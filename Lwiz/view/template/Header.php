@@ -7,6 +7,7 @@
         <div class="userBanner">
             <nav class='menu' id='SessionU'>
                 <ul>
+                    <li><a id="Home" href="" onclick="HomeReturn();return false;">Home</a></li>                                                                                                 
                     <li><a href='?action=utilisateurs'>Utilisateurs</a></li>
                     <li><a href='#'>Salles</a></li>
                     <li><a href='?action=menuAssoc'>Associations</a></li>
@@ -27,9 +28,10 @@
     }
     else
     {
-        echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
+        echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/';</script>";
     }
 ?>
+<script src="js/Template/Redirection.js"></script>
 </header>
 <br />
 <br />

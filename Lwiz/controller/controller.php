@@ -46,7 +46,7 @@
         //require('js/verif.js');
         require('model/fonctions.php');
         
-        $email = getVAluesFromBDD(null, 5, 'mail');
+        //$email = getVAluesFromBDD(null, 5, 'mail');
         $responsable = getValuesFromBDD('mrbs_users', null, null);
         require('view/Association/creerAssoc.php');
     }
@@ -54,6 +54,7 @@
     {
         require('model/PDO.php');
         require('model/fonctions.php');
+        $associations = getValuesFromBDD('mrbs_league', null, null);
         require('view/Association/modifAssoc.php');
     }
 
