@@ -5,7 +5,7 @@
         $final_result = '';
         $requete = '';
         $bdd = connexionBDD();
-        if(isset($id)) {
+        /*if(isset($id)) {
             //getEmail
             if($type == 'mail'){
                 $requete = "SELECT email FROM mrbs_users WHERE id = '".$id."' ";
@@ -51,7 +51,7 @@
 
             }
         }
-        else {
+        else {*/
             //getValues
             $requete = "SELECT * FROM " .$table. "";
             $values = array();
@@ -72,7 +72,7 @@
             }
         
             $final_result = $values;
-        }
+        //}
         return $final_result;
     }
 

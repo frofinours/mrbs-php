@@ -18,6 +18,7 @@ function modifAssoc()
     require('model/fonctions.php');
 
     $associations = getValuesFromBDD('mrbs_league', null, null);
+    //var_dump("ASSOCIATIONS : ", $associations);
     require('view/modifAssoc.php');
 }
 /*function addUtilisateur()
