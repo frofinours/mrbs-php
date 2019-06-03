@@ -5,16 +5,17 @@
     <title>Modifier association</title>
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
-<script src='js/Association/fonctions.js'></script>
+<!-- <script src='js/Association/fonctions.js'></script>-->
+<script src="js/Association/verif.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 
 <?php require('view/template/Header.php'); ?>
 
 <body class='formulaire'>
-    <div class='form'>
+    <form id='modifAssocForm' action='' method='POST'>
         <h1>Modifier une association</h1>
         <label>Liste des associations : </label>
-        <select name="association" onchange="display('association', 'assocInfos')">
+        <select name="association" id="association" onchange="display('association', 'assocInfos')">
             <option value=null selected >-----Choisissez une association-----</option>
             <!-- <option value="ex1">Exemple 1</option>
             <option value="ex2">Exemple 2</option> -->
@@ -35,12 +36,12 @@
             <br/><br/>
             <label>Adresse mail : </label>
             <input type="text" id="emailAssoc"     onkeyup="verifMail();"/>
-            <input type="button" value="Modifier"  onclick=""/>
+            <input type="button" value="Modifier"/>
         </div>
         <input type='button' value='Retour' onclick="/*document.location.href='menuAssoc.php'*/window.location='?action=menuAssoc'"/>
         <script>
             display('association', 'assocInfos')
         </script>
-    </div>
+    </form>
 </body>
 </html>

@@ -7,19 +7,14 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
 
-    <?php 
-        require('view/template/Header.php'); 
-        //TODO: Fix le CSS un jour. Peut-être. J'vais sûrement le pomper sur internet mdr. 
+    <?php require('view/template/Header.php'); ?>
+    <body class="Accueil">
+        <br /><br />
+        <h1>Bienvenue 
+        <?php 
+        echo $_COOKIE['Utilisateur'];
         ?>
-        <body class="Accueil">
-            <br /><br />
-            <p>Bienvenue 
-            <?php 
-            echo $_COOKIE['Utilisateur'];
-            ?>
-            </p>
-            <br />
-        </body> <?php
-    ?>
-
+        </h1>
+        <br />
+    </body> 
 </html>

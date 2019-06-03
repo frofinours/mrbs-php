@@ -69,22 +69,20 @@
         $theRow = $login->fetch();
         if($theRow == false)
         {
-            //On le renvoie au portail de connexion si la requête a retourné false
+            //On le renvoie au portail de connexion si la requête a retourné false pour retenter la connexion
             echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
         }
         else
         {
-            //On paramètre les cookies Utilisateurs, qui expireront au bout de 15min
-            setcookie('Utilisateur',$theRow[0],time()+900);
+            //Expiration 30min
+            //On stock les valeurs dans des cookies pour les appeler plus tard
+            setcookie('Utilisateur',$theRow[0],time()+1800);
             $_COOKIE['Utilisateur'] = $theRow[0];
-            //On va chercher le niveau de l'utilisateur
-            //on renvoie un true/false en fonction de si l'utilisateur est admin ou non
-            //Et on stock la valeur dans un cookie pour pouvoir l'appeler plus tard
             $isAdmin = isAdmin($username);
-            setcookie('Level', $isAdmin, time()+900);
+            setcookie('Level', $isAdmin, time()+1800);
             $_COOKIE['Level'] = $isAdmin;
             //On renvoie à la page d'origine après le require pour effacer le ?action=ConnexionU de l'URL
-            //Pour éviter de faire planter au F5 ou si l'utilisateur appuie sur "retour"
+            //Cela évite de faire planter l'app au F5 ou si l'utilisateur appuie sur "retour"
             require('view/Login/ViewAfterLogin.php');
             echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
         }

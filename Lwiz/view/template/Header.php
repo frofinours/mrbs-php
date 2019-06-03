@@ -1,13 +1,13 @@
 <header class="Entete">
     <?php 
-    //On vérifie l'existence du cookie
+    //On vérifie l'existence du cookie pour savoir si l'utilisateur est toujours connecté ou non
     if (isset($_COOKIE['Utilisateur']) && $_COOKIE['Utilisateur'] != null)
     {
         ?>
         <div class="userBanner">
             <nav class='menu' id='SessionU'>
                 <ul>
-                    <li><a id="Home" href="" onclick="HomeReturn();return false;">Home</a></li>                                                                                                 
+                    <li><a id="Home" href="view/template/JavascriptError.php" onclick="HomeReturn();return false;">Home</a></li>                                                                                                 
                     <li><a href='?action=utilisateurs'>Utilisateurs</a></li>
                     <li><a href='#'>Salles</a></li>
                     <li><a href='?action=menuAssoc'>Associations</a></li>

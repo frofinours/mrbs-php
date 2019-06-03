@@ -63,8 +63,8 @@ function logout()
 {
 	//On met le timer du cookie à -1 pour le faire expirer immédiatement et le "détruire"
 	//Et en valeur bah on peut mettre ce qu'on veut vu que le cookie sera instantanément détruit :>
-	setcookie('Utilisateur', 'Seul Link peut vaincre Ganon', time()-1);
-	setcookie('Level', 'Si vous êtes un ami, vous donnez le mot de SaaS et les portes s´ouvrirons', time()-1);
+	setcookie('Utilisateur', '[Insérez un truc drôle]', time()-1);
+	setcookie('Level', 'Salut ça va', time()-1);
 }
 
 //Vérification des droits
@@ -92,7 +92,7 @@ function getValuesFromBDD($table, $id, $type){
 	$final_result = '';
 	$requete = '';
 	$bdd = connexionBDD();
-	if(isset($id)) {
+	/*if(isset($id)) {
 		//getEmail
 		if($type == 'mail'){
 			$requete = "SELECT email FROM mrbs_users WHERE id = '".$id."' ";
@@ -138,19 +138,18 @@ function getValuesFromBDD($table, $id, $type){
 
 		}
 	}
-	else {
+	else {*/
 		//getValues
-		$requete = "SELECT * FROM " .$table. "";
-		$values = array();
-		try {
-			$results = $bdd->query($requete);
-			$results->setFetchMode(PDO::FETCH_OBJ);
+	$requete = "SELECT * FROM " .$table. "";
+	$values = array();
+	try {
+		$results = $bdd->query($requete);
+		$results->setFetchMode(PDO::FETCH_OBJ);
 			
 			//parcourir les lignes de la requète
-			while( $ligne = $results->fetch())
+		while($ligne = $results->fetch())
 			{
 				array_push($values, $ligne);
-				 
 			}
 			$results->closeCursor();
 
@@ -159,7 +158,7 @@ function getValuesFromBDD($table, $id, $type){
 		}
 	
 		$final_result = $values;
-	}
+	//}
 	return $final_result;
 }
 

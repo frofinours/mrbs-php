@@ -35,7 +35,6 @@ if (isset($_GET['action']))
             require('view/template/403.php');
         }
     }
-
     if ($_GET['action'] == 'creerAssoc') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             creationAssoc();
@@ -69,8 +68,5 @@ else
         //Portail de connexion
         require('view/Login/ViewLogin.php');
     }
-    //if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
-    //    addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['password']);
-    //}
 }
 ?>

@@ -13,32 +13,29 @@
 <?php require('view/template/Header.php'); ?>
 
 <body class='formulaire'>
-    <form id='formAssoc' action='' method='POST'>
-        <div class='form'>
-            <h1>Créer une association</h1>
-            <label>Nom de l'association : </label>
-            <input type='text' id='assocNom'/><br/><br/>
-            <label>Sélectionnez le responsable : </label>
-            <select id='responsable' onchange='setResEmail()' default='' >
-            <?php
-                
-                foreach($responsable as $r)
-                {
-                    echo "<option   value='".$r->id."'>".$r->name."</ option>";
-                }
+    <form id='creerAssocForm' action='' method='POST'>
 
-            ?>
+        <h1>Créer une association</h1>
+        <label>Nom de l'association : </label>
+        <input type='text' id='assocNom'/><br/><br/>
+        <label>Sélectionnez le responsable : </label>
+        <select id='responsable' onchange= 'setResEmail()' default='' >
+        <?php
+            foreach($responsable as $r)
+            {
+                echo "<option   value='".$r->id."'>".$r->name."</ option>";
 
-            </select>
-            <br/><br/>
-            <label>Adresse mail du responsable : </label>
-            <input type="text" id="emailRes" default="admin.mrbs@lorraine-sport.net"/>
-            <br/><br/>
-            <label>Adresse mail association : </label>
-            <input type="text" id="emailAssoc"      onkeyup="verifMail();"/><br/><br/>
-            <input type="button" value="Créer"      onclick="sendValuesToBDD();"/>
-            <input type="button" value="Retour"     onclick="document.location.href='menuAssoc.php'*/window.location='?action=menuAssoc'"/>
-        </div>
+            }
+        ?>
+        </select>
+        <br/><br/>
+        <label>Adresse mail du responsable : </label>
+        <input type="text" id="emailRes"    value="admin.mrbs@lorraine-sport.net"/>
+        <br/><br/>
+        <label>Adresse mail association : </label>
+        <input type="text" id="emailAssoc"     onkeyup="verifMail();"/><br/><br/>
+        <input type="submit" value="Créer"/>
+        <input type="button" value="Retour"     onclick="/*document.location.href='menuAssoc.php'*/window.location='?action=menuAssoc'"/>
     </form>
 </body>
 </html>

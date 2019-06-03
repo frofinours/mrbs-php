@@ -8,4 +8,4 @@
         <p>C'est vide ici</p>
     </body>
 </html>
-<!-- TODO: à faire si on a plus rien à faire derrière lul
+<!-- TODO: à faire, un jour -->
