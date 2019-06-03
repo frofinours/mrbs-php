@@ -39,13 +39,15 @@ if(isset($id)) {
     } catch (Exception $e) {
         die("Erreur : " .$e->getMessage());
     }
-    
+    $id_res = $values->id_responsable;
     $nom = $values->nom;
     $email_asso = $values->adresse_mail_asso;
     $nom_res = $res_info->name;
     $email_res = $res_info->email;
 
-    $array = array($email_asso, $nom_res, $email_res, $nom);
+    $array = array($email_asso, $nom_res, $email_res, $nom, $id_res);
+    
     echo json_encode($array);
+
 }
 ?>

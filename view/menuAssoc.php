@@ -10,8 +10,8 @@
 <body class='formulaire'>
     <div class='form'>
         <h1>ASSOCIATIONS</h1>
-        <input type="button" value="Créer association"  onclick="/*document.location.href='creerAssoc.php'*/window.location='?action=creerAssoc'")/>
-        <input type="button" value="Modifier association"   onclick="/*document.location.href='modifAssoc.php'*/window.location='?action=modifAssoc'"/>
+        <input type="button" value="Créer association"  onclick="window.location='?action=creerAssoc'")/>
+        <input type="button" value="Modifier association"   onclick="window.location='?action=modifAssoc'"/>
     </div>
 </body>
 </html>

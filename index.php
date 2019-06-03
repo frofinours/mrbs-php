@@ -7,16 +7,20 @@ if (isset($_GET['action']))
         menuAssoc();
     }
     if ($_GET['action'] == 'creerAssoc') {
-
-    creationAssoc();
+        creationAssoc();
     }
     if ($_GET['action'] == 'modifAssoc') {
-        modifAssoc(/*$_GET['id']*/);
+        modifAssoc();
     }
 }
-/*if (!empty($_POST)) 
+if (!empty($_POST)) 
 {
-    if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
-        addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['password']);
+    if (isset($_POST['assocNomCreer']) && isset($_POST['emailAssocCreer']) && isset($_POST['responsableCreer'])) {
+        creationAssocBDD($_POST['assocNomCreer'], $_POST['emailAssocCreer'], $_POST['responsableCreer']);
     }
-}*/
+    
+    if(isset($_POST['associationModif']) && isset($_POST['assocNomModif']) && isset($_POST['emailAssocModif']) && isset($_POST['assocResModif'])){
+        updateValuesBDD($_POST['associationModif'], $_POST['assocNomModif'], $_POST['emailAssocModif'], $_POST['assocResModif']);
+    }
+   
+}

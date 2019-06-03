@@ -7,8 +7,7 @@ function creationAssoc()
 {
     require('model/connexionBDDAssoc.php');
     require('model/fonctions.php');
-    
-    //$email = getVAluesFromBDD(null, 5, 'mail');
+
     $responsable = getValuesFromBDD('mrbs_users', null, null);
     require('view/creerAssoc.php');
 }
@@ -17,26 +16,18 @@ function modifAssoc()
     require('model/connexionBDDAssoc.php');
     require('model/fonctions.php');
 
+    $responsable = getValuesFromBDD('mrbs_users', null, null);
     $associations = getValuesFromBDD('mrbs_league', null, null);
-    //var_dump("ASSOCIATIONS : ", $associations);
     require('view/modifAssoc.php');
 }
-/*function addUtilisateur()
-{
-    require('view/AjouterU.php');
+
+function creationAssocBDD($nom_assoc, $mail_assoc, $id_res){
+    $message = sendValuesToBDD($nom_assoc, $mail_assoc, $id_res);
+    
+
 }
-function addUtilisateurBDD($name, $email, $password)
-{
-    require('model/PDO.php');
-    require('model/BDDUtilisateurs.php');
-    addUser($name, $email, $password);
+
+function modifAssocBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
+    updateValuesBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res);
 }
-function editUtilisateurId($id)
-{
-    $usertoEdit = editUserId($id);
-    require('view/ModifierU.php');
-}
-function deleteUtilisateurId($id)
-{
-    deleteUserId($id);
-}*/
+
