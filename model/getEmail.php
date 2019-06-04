@@ -3,7 +3,8 @@
     $id_res = $_POST['id_res'];
     $bdd = connexionBDD();
     if(isset($id_res)){
-        $requete = "SELECT email FROM mrbs_users WHEREid = '".$id_res."'";
+        $requete = "SELECT email FROM mrbs_users WHERE id = '".$id_res."'";
+       
         $email = null;
         try {
             $resultat = $bdd->query($requete);
@@ -20,5 +21,9 @@
         }
         
         echo $email->email;
+    
     }
+        
+
+ 
 ?>
