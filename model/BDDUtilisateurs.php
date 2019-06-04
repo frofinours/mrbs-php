@@ -17,7 +17,7 @@ function addUser($name, $email, $password)
 }
 function editUserId($id)
 {
-	$result = connexionBDD()->query('SELECT id, name, email, dateSuppression FROM mrbs_users WHERE id = $id;');
+	$result = connexionBDD()->query("SELECT id, name, email, dateSuppression FROM mrbs_users WHERE id = '" .$id. '";');
 	return $result;
 }
 function deleteUserId($id)
