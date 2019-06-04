@@ -96,8 +96,6 @@ function getValuesFromBDD($table, $id, $type){
 	
 	return $final_result;
 }
-
-
 function sendValuesToBDD($nom_assoc, $mail_assoc, $id_res){
 	$message = '';
 	$bdd = connexionBDD();
@@ -115,10 +113,9 @@ function sendValuesToBDD($nom_assoc, $mail_assoc, $id_res){
 	else {
 		$message = '/!\ Veuillez remplir les champs manquants /!\\';
 	}
+	
 	echo $message ;
 }
-
-
 function updateValuesBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
 	$message = '';
 	$bdd = connexionBDD();
@@ -133,4 +130,5 @@ function updateValuesBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
 	}
 	echo $message;
 }
+
 ?>

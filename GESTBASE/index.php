@@ -1,6 +1,7 @@
 <?php 
 require('controller/controller.php');
 
+
 //On vérifie si une action existe
 if (isset($_GET['action'])) 
 {
@@ -71,5 +72,17 @@ else
         //Portail de connexion
         require('view/Login/ViewLogin.php');
     }
+}
+
+if (!empty($_POST)) 
+{
+    if (isset($_POST['assocNomCreer']) && isset($_POST['emailAssocCreer']) && isset($_POST['responsableCreer'])) {
+        creationAssocBDD($_POST['assocNomCreer'], $_POST['emailAssocCreer'], $_POST['responsableCreer']);
+    }
+    
+    if(isset($_POST['associationModif']) && isset($_POST['assocNomModif']) && isset($_POST['emailAssocModif']) && isset($_POST['assocResModif'])){
+        updateValuesBDD($_POST['associationModif'], $_POST['assocNomModif'], $_POST['emailAssocModif'], $_POST['assocResModif']);
+    }
+   
 }
 ?>
