@@ -41,7 +41,7 @@ $(document).ready(function () {
                     var id = table.row({ selected: true }).data()[0];
                     $.ajax({
                         url: '?action=SupprimerU',
-                        data: 'idDelete=' + id,
+                        data: id,
                         type: 'POST'
                     })
                 }

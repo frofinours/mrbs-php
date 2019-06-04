@@ -28,6 +28,15 @@ function deleteUserId($id)
 {
 	$req = connexionBDD()->exec('UPDATE mrbs_users SET dateSuppression = SYSDATE() WHERE id = '.$id.'');
 }
+function checkEmail($email)
+{
+	return nbLignesRequete('SELECT id FROM mrbs_users WHERE email = '.$email.'');
+	
+}
+function checkName($name)
+{
+	return nbLignesRequete('SELECT id FROM mrbs_users WHERE name = '.$name.'');
+}
 
 
 

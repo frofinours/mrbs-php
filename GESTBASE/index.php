@@ -20,17 +20,39 @@ if (isset($_GET['action']))
     /** Droits admin nécessaire**/
 
     if ($_GET['action'] == 'AjouterU') {
-        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            addUtilisateur();
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1)
+        { 
+            if (!empty($_POST)) 
+            {
+                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) 
+                {
+                    addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['password']);
+                }  
+            }
+            else
+            {
+                addUtilisateur();
+            }
         }
         else
         {
             require('view/template/403.php');
         }
     }
+
     if ($_GET['action'] == 'ModifierU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             editUtilisateurId($_GET['id']);
+        }
+        else
+        {
+            require('view/template/403.php');
+        }
+    }
+
+    if ($_GET['action'] == 'deleteU') {
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
+            deleteUtilisateurId($_GET['id']);
         }
         else
         {
@@ -72,4 +94,6 @@ else
         require('view/Login/ViewLogin.php');
     }
 }
+
+
 ?>
