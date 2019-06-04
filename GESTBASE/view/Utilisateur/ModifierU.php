@@ -7,13 +7,13 @@
     <title>Modifier utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="js/utilisateur.js"></script>
+    <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
 
 <body class="formulaire">
     <div class="form">
         <h1>Modifier un utilisateur</h1>
-        <form id="formulaireModifierU" method="post" action="editUser">
+        <form id="formulaireModifierU" method="post" action="?action=ModifierU">
             <label>Séléctionnez l'utilisateur à modifier.</label><select id="user">
 
             </select>

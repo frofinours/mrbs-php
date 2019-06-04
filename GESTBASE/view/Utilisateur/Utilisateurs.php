@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Gestion utilisateurs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/select.dataTables.min.css" />
@@ -16,7 +15,7 @@
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.buttons.min.js"></script>
     <script src="js/dataTables.select.min.js"></script>
-    <script src="js/utilisateur.js"></script>
+    <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
 
 <body>
@@ -31,32 +30,30 @@
         </thead>
         <tbody>
             <?php
-            while ($users = $userList->fetch()) {
+            while ($users = $userList->fetch()) 
+            {
                 ?>
-            <tr>
-                <td> <?php echo $users['id']; ?> </td>
-                <td>
-                    <center><?php echo $users['name']; ?></center>
-                </td>
-                <td>
-                    <center><?php echo $users['email']; ?></center>
-                </td>
-                <td>
-                    <center>
+                <tr>
+                    <td> <?php echo $users['id']; ?> </td>
+                    <td>
+                        <?php echo $users['name']; ?>
+                    </td>
+                    <td>
+                        <?php echo $users['email']; ?>
+                    </td>
+                    <td>
                         <?php 
                         if ($users['dateSuppression'] == null) {
                             echo ("Non");
                         } else {
-                            echo $users['dateSuppression'];
+                            $users['dateSuppression'];
                         }
                         ?>
-                    </center>
-                </td>
-            </tr>
-            <?php
-
-        }
-        ?>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
         </tbody>
     </table>
     <?php
