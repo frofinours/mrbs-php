@@ -30,22 +30,6 @@ function deleteUserId($id)
 }
 
 
-// function supprimerUtilisateur(nom){
-//     $bdd->exec('UPDATE mrbs_users SET dateSuppression = 'SYSDATE()' WHERE name = 'nom';');
-// }
-
-// function changerMDP(nom, nouveauMDP){
-//     $bdd->exec('UPDATE mrbs_users SET password = 'nouveauMDP' WHERE name = 'nom';');
-// }   
-
-// function changerEmail(nom, nouveauEmail){
-//     $bdd->exec('UPDATE mrbs_users SET email = 'nouveauEmail' WHERE name = 'nom';');
-// }
-// function afficherUtilisateurs(){
-//     $reponse = $bdd->query('SELECT name FROM mrbs_users;');
-// } 
- 
-
 
 /****** Louise ******/
 
@@ -63,7 +47,7 @@ function logout()
 {
 	//On met le timer du cookie à -1 pour le faire expirer immédiatement et le "détruire"
 	//Et en valeur bah on peut mettre ce qu'on veut vu que le cookie sera instantanément détruit :>
-	setcookie('Utilisateur', '[Insérez un truc drôle]', time()-1);
+	setcookie('Utilisateur', 'I am a teapot', time()-1);
 	setcookie('Level', 'Salut ça va', time()-1);
 }
 
@@ -88,94 +72,65 @@ function isAdmin($username){
 /****** Cécile ******/
 
 function getValuesFromBDD($table, $id, $type){
-	//include 'connexionBDDAssoc.php';
 	$final_result = '';
 	$requete = '';
 	$bdd = connexionBDD();
-	/*if(isset($id)) {
-		//getEmail
-		if($type == 'mail'){
-			$requete = "SELECT email FROM mrbs_users WHERE id = '".$id."' ";
-			//var_dump($requete);
-			$email = null;
-			try {
-				$resultat = $bdd->query($requete);
-				$resultat->setFetchMode(PDO::FETCH_OBJ);
-				
-				while ($ligne = $resultat->fetch()) 
-				{
-					$email = $ligne;
-				}
-				$resultat->closeCursor();
-			} 
-			catch (Exception $e) {
-				die("Erreur : " .$e->getMessage());
-			}
-			$final_result = $email->email;
-
-		}
-		else {
-			//getAssosInfos
-			$requete = "SELECT * FROM " .$table. " WHERE id = " .$id. "";
-			$values = array();
-			try {
-				$resultat = $bdd->query($requete);
-				$resultat->setFetchMode(PDO::FETCH_OBJ);
-		
-				while( $ligne = $resultat->fetch())
-				{
-					array_push($values, $ligne);
-					
-				}
-				$resultat->closeCursor();
-				
-			} catch (Exception $e) {
-				die("Erreur : " .$e->getMessage());
-			}
-			//var_dump($values);
-			
-			$final_result = $values[0];
-
-		}
-	}
-	else {*/
-		//getValues
 	$requete = "SELECT * FROM " .$table. "";
 	$values = array();
 	try {
 		$results = $bdd->query($requete);
 		$results->setFetchMode(PDO::FETCH_OBJ);
-			
-			//parcourir les lignes de la requète
-		while($ligne = $results->fetch())
-			{
-				array_push($values, $ligne);
-			}
-			$results->closeCursor();
-
-		} catch (Exception $e) {
-			die("Erreur : " .$e->getMessage());
+		
+		//parcourir les lignes de la requète
+		while( $ligne = $results->fetch())
+		{
+			array_push($values, $ligne);
+			 
 		}
+		$results->closeCursor();
+	} catch (Exception $e) {
+		die("Erreur : " .$e->getMessage());
+	}
+
+	$final_result = $values;
 	
-		$final_result = $values;
-	//}
 	return $final_result;
 }
 
-function sendValuesToBdd($nom_assoc, $mail_assoc, $id_res){
+
+function sendValuesToBDD($nom_assoc, $mail_assoc, $id_res){
+	$message = '';
+	$bdd = connexionBDD();
+	if($nom_assoc != '' && $mail_assoc != '' && $id_res != ''){
+		try{
+			$requete_Insert = "INSERT INTO mrbs_league(nom, adresse_mail_asso, id_responsable) VALUES   ('".$nom_assoc."','".$mail_assoc."', '".$id_res."');  ";
+			$bdd->exec($requete_Insert);
+			$message = 'Données transmises avec succès';
+		}
+		catch(Exception $e){
+			die("Erreur : " .$e->getMessage());
+			$message = $e->getMessage();
+		}
+	}
+	else {
+		$message = '/!\ Veuillez remplir les champs manquants /!\\';
+	}
+	echo $message ;
+}
+
+
+function updateValuesBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
 	$message = '';
 	$bdd = connexionBDD();
 	try{
-		$requete_Insert = "INSERT INTO mrbs_league(nom, adresse_mail_asso, id_responsable) VALUES   ('".$nom_assoc."','".$mail_assoc."', '".$id_res."');  ";
-		$bdd->exec($requete_Insert);
+		$requete_Update = "UPDATE mrbs_league SET nom = '".$nom_assoc."', adresse_mail_asso = '".$mail_assoc."', id_responsable = '".$id_res."' WHERE id = '".$id_assoc."';";
+		$bdd->exec($requete_Update);
 		$message = 'Données transmises avec succès';
 	}
 	catch(Exception $e){
 		die("Erreur : " .$e->getMessage());
 		$message = $e->getMessage();
 	}
-
 	echo $message;
-
 }
 ?>

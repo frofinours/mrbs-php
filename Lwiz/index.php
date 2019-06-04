@@ -17,6 +17,8 @@ if (isset($_GET['action']))
         menuAssoc();
     }
 
+    /** Droits admin nécessaire**/
+
     if ($_GET['action'] == 'AjouterU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             addUtilisateur();
@@ -35,6 +37,7 @@ if (isset($_GET['action']))
             require('view/template/403.php');
         }
     }
+
     if ($_GET['action'] == 'creerAssoc') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             creationAssoc();

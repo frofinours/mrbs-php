@@ -9,8 +9,6 @@
     <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
 
-<?php require('view/template/Header.php'); ?>
-
 <body>
     <div class="form">
     <h1>Supprimer un utilisateur</h1>

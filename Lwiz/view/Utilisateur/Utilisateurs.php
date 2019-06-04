@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Gestion utilisateurs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php
-    require('view/template/Header.php');
-    ?>
     <link rel="stylesheet" type="text/css" media="screen" href="css/jquery.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/select.dataTables.min.css" />
@@ -20,8 +17,6 @@
     <script src="js/dataTables.select.min.js"></script>
     <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
-
-<?php require('view/template/Header.php'); ?>
 
 <body>
     <table id="userList" class="display">

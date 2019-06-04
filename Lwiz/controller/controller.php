@@ -7,11 +7,13 @@
         require('model/PDO.php');
         require('model/fonctions.php');
         $userList = getUsers();
+        require('view/template/Header.php');
         require('view/Utilisateur/Utilisateurs.php');
     }
 
     function addUtilisateur()
     {
+        require('view/template/Header.php');
         require('view/Utilisateur/AjouterU.php');
     }
 
@@ -25,6 +27,7 @@
     function editUtilisateurId($id)
     {
         $usertoEdit = editUserId($id);
+        require('view/template/Header.php');
         require('view/Utilisateur/ModifierU.php');
     }
 
@@ -38,6 +41,7 @@
 
     function menuAssoc() 
     {
+        require('view/template/Header.php');
         require('view/Association/menuAssoc.php');
     }
     function creationAssoc()
@@ -48,6 +52,7 @@
         
         //$email = getVAluesFromBDD(null, 5, 'mail');
         $responsable = getValuesFromBDD('mrbs_users', null, null);
+        require('view/template/Header.php');
         require('view/Association/creerAssoc.php');
     }
     function modifAssoc()
@@ -55,6 +60,7 @@
         require('model/PDO.php');
         require('model/fonctions.php');
         $associations = getValuesFromBDD('mrbs_league', null, null);
+        require('view/template/Header.php');
         require('view/Association/modifAssoc.php');
     }
 
@@ -84,6 +90,7 @@
             //On renvoie à la page d'origine après le require pour effacer le ?action=ConnexionU de l'URL
             //Cela évite de faire planter l'app au F5 ou si l'utilisateur appuie sur "retour"
             require('view/Login/ViewAfterLogin.php');
+
             echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/'</script>";
         }
         

@@ -8,8 +8,6 @@
     
 </head>
 
-<?php require('view/template/Header.php'); ?>
-
 <body class='formulaire'>
     <div class='form'>
         <h1>ASSOCIATIONS</h1>
