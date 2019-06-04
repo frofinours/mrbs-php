@@ -39,30 +39,32 @@
 
     /****** Cécile ******/
 
-    function menuAssoc() 
-    {
-        require('view/template/Header.php');
-        require('view/Association/menuAssoc.php');
-    }
-    function creationAssoc()
-    {
-        require('model/PDO.php');
-        //require('js/verif.js');
-        require('model/fonctions.php');
-        
-        //$email = getVAluesFromBDD(null, 5, 'mail');
-        $responsable = getValuesFromBDD('mrbs_users', null, null);
-        require('view/template/Header.php');
-        require('view/Association/creerAssoc.php');
-    }
-    function modifAssoc()
-    {
-        require('model/PDO.php');
-        require('model/fonctions.php');
-        $associations = getValuesFromBDD('mrbs_league', null, null);
-        require('view/template/Header.php');
-        require('view/Association/modifAssoc.php');
-    }
+function menuAssoc() 
+{
+    require('view/Association/menuAssoc.php');
+}
+function creationAssoc()
+{
+    require('model/PDO.php');
+    require('model/fonctions.php');
+    $responsable = getValuesFromBDD('mrbs_users', null, null);
+    require('view/Association/creerAssoc.php');
+}
+function modifAssoc()
+{
+    require('model/PDO.php');
+    require('model/fonctions.php');
+    $responsable = getValuesFromBDD('mrbs_users', null, null);
+    $associations = getValuesFromBDD('mrbs_league', null, null);
+    require('view/Association/modifAssoc.php');
+}
+function creationAssocBDD($nom_assoc, $mail_assoc, $id_res){
+    $message = sendValuesToBDD($nom_assoc, $mail_assoc, $id_res);
+    
+}
+function modifAssocBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
+    updateValuesBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res);
+}
 
 
     /****** Louise ******/
