@@ -38,11 +38,11 @@
 
     function checkEmailExist($email)
     {
-        $nblEmail = checkEmail($email)
+        $nblEmail = checkEmail($email);
     }
     function checkNameExist($name)
     {
-        $nblName = checkName($name)
+        $nblName = checkName($name);
     }
 
 

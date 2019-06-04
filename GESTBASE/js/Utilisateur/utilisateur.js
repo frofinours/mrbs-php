@@ -6,6 +6,30 @@ function mdpConfirm() {
         document.getElementById("mdpc").setCustomValidity('');
     }
 };
+function emailConfirm(){
+    $.ajax({
+        url: '?action=checkEmail',
+        data: document.getElementById("email").value,
+        type: 'POST',
+        success:function(){
+            if($nblEmail >= 1){
+                document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.")
+            }
+        }
+    })
+}
+function NameConfirm(){
+    $.ajax({
+        url: '?action=checkName',
+        data: document.getElementById("name").value,
+        type: 'POST',
+        success:function(){
+            if($nblName >= 1){
+                document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé")
+            }
+        }
+    })
+}
 
 $(document).ready(function () {
     var table = $('#userList').DataTable({
