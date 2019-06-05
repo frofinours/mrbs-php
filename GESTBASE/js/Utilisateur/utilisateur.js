@@ -64,8 +64,8 @@ $(document).ready(function () {
                 action: function (e, dt, node, config) {
                     var id = table.row({ selected: true }).data()[0];
                     $.ajax({
-                        url: '?action=SupprimerU',
-                        data: id,
+                        url: '?action=deleteU',
+                        data: 'id=' + id,
                         type: 'POST'
                     })
                 }

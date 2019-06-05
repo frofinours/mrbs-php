@@ -50,9 +50,9 @@ if (isset($_GET['action']))
         }
     }
 
-    if ($_GET['action'] == 'deleteU') {
+    if ($_POST['action'] == 'deleteU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            deleteUtilisateurId($_GET['id']);
+            deleteUtilisateurId($_POST['id']);
         }
         else
         {
