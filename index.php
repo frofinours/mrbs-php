@@ -1,23 +1,34 @@
-<html>
+<?php
+ 
+require('controller/controller.php');
 
-	<link rel="stylesheet" href="css/style.css" media="screen" />
+if (isset($_GET['action'])) 
+{
+    if ($_GET['action'] == 'editSalle') {
+        editSalle();
+    }
+    else if ($_GET['action'] == 'viewSalle') {
+        viewSalle();
+    }
+    else if($_GET['action'] == 'menuSalle'){
+        menuSalle();
+    }
+    else{
+        lostinspace();
+    }
+}
+else
+{
+    menuSalle();
+}
 
- <?php
-
- include '/view/afficheTEST.php';
+// if (!empty($_POST)) 
+// {
+//     if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
+//         addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['password']);
+//     }
+// }
 
  ?>
 
- <head>
 
-     <title>Gestion des salles</title>
-     <div id="bandeau"><h1>Gestion des salles</h1>
-     <i>Que voulez-vous faire?</i>
-     
-<body class="formulaire">
-  <br>
-    <div id="buttons"><input type='button' id='menuButtonEdit' value="Modifier une salle" onclick="location.href='view/editSalle.php'"/>
-  <br><br>
-    <input type='button' id='menuButtonView' value="Voir les salles" onclick="location.href='view/viewSalle.php'"/></div>
-
-</div>

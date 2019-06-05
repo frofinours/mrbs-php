@@ -1,15 +1,14 @@
 <?php
     include 'PDO.php';
+    $room_id = $_GET['id'];
+    if(isset($room_id)){
 
-    $room_name = $_POST['name'];
-    if(isset($room_name)){
-
-            $requete = "SELECT area_name FROM mrbs_area INNER JOIN mrbs_room ON mrbs_area.id = mrbs_room.area_id  WHERE room_name = '".$room_name."' ;";
+            $requete = "SELECT area_id FROM mrbs_room WHERE id = '".$room_id."' ;";
             
 
             $result = null;
             try {
-                $resultat = $connexion->query($requete);
+                $resultat = connexionBDD()->query($requete);
                 $resultat->setFetchMode(PDO::FETCH_OBJ);
                 
 
@@ -23,11 +22,8 @@
                 die("Erreur : " .$e->getMessage());
             }
 
-            echo $result->area_name;
-            
-        //}
-    }
+            echo $result->area_id;
         
-    // }
+    }
 
 ?>

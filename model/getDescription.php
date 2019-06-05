@@ -1,21 +1,21 @@
 <?php
     include 'PDO.php';
 
-    $room_name = $_POST['name'];
-    if(isset($room_name)){
+    $room_id = $_GET['id'];
+    if(isset($room_id)){
 
-            $requete = "SELECT capacity FROM mrbs_room WHERE room_name = '".$room_name."' ;";
-            
 
-            $result = null;
+            $requete = "SELECT description FROM mrbs_room WHERE id = '".$room_id."' ;";
+
+            $type = null;
             try {
-                $resultat = $connexion->query($requete);
+                $resultat = connexionBDD()->query($requete);
                 $resultat->setFetchMode(PDO::FETCH_OBJ);
                 
 
                 while ($ligne = $resultat->fetch())
                 {
-                    $result = $ligne;
+                    $type = $ligne;
                 }
                 $resultat->closeCursor();
             } 
@@ -23,11 +23,9 @@
                 die("Erreur : " .$e->getMessage());
             }
 
-            echo $result->capacity;
+            echo $type->description;
             
         //}
     }
         
     // }
-
-?>

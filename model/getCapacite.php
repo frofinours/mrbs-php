@@ -1,15 +1,15 @@
 <?php
     include 'PDO.php';
 
-    $room_name = $_POST['name'];
-    if(isset($room_name)){
+    $room_id = $_GET['id'];
+    if(isset($room_id)){
 
-            $requete = "SELECT room_admin_email FROM mrbs_room  WHERE room_name = '".$room_name."' ;";
+            $requete = "SELECT capacity FROM mrbs_room WHERE id = '".$room_id."' ;";
             
 
             $result = null;
             try {
-                $resultat = $connexion->query($requete);
+                $resultat = connexionBDD()->query($requete);
                 $resultat->setFetchMode(PDO::FETCH_OBJ);
                 
 
@@ -23,11 +23,9 @@
                 die("Erreur : " .$e->getMessage());
             }
 
-            echo $result->room_admin_email;
+            echo $result->capacity;
             
         //}
     }
         
     // }
-
-?>

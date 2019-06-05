@@ -1,46 +1,62 @@
-<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="../css/style.css" media="screen" />
- 
-<script src="../js/scripts.js"></script>
+<!DOCTYPE html>
+<html>
 
- <head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Modifier une salle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/scripts.js"></script>
+</head>
 
-
-    <div id="title"><title>Modifier une salle</title></div>
+<body class="formulaire"> 
+  <div class="form">
     <h1>Gestion des salles</h1>
+    <input type='button' id='buttonRetour' value="<- Retour" onclick="document.location.href='?action=menuSalle'"/>
 
-    <body class="formulaire"> 
-    <form class="form">
+  <h2>Séléctionnez la salle à modifier</h2>
 
-      <input type='button' id='buttonRetour' value="<- Retour" onclick="location.href='../index.php'"/>
-    
-    <h2>Modifier une salle</h2>
-    <b>Salle : </b>
+  <b>Salle : </b>
 
-    <select id="roomname" name="salle" value="" onchange='setResults()'>
-    <option value="">--Choisissez une salle--</option>
+  <select id="roomSelect" name="salleSelect" value="" onchange='setResults()'>
+  <option value="">--Choisissez une salle--</option>
+
+  
 <?php
-    include '..\bdd\requetes.php';
 
-    $salles = getSalles();
- 
     foreach($salles as $salle)
       {
         echo "<option value='".$salle->room_name."'>".$salle->room_name."</option>";
       }
 ?>
+
+
   </select>
   <br><br>
-
       <b>Type :</b>
-      <input type="text" id="area"/><br><br>
+
+      <select id="area" name="typeSelect" value="">
+      <option value="">--Choisissez un type de salle--</option>
+      <?php
+        foreach($types as $type){
+          echo "<option value'".$type['id']."'>".$type['area_name']."</option>";
+        }
+
+        ?>
+        </select>
+
+
       <b>Description :</b>
       <input type="text" id="description"/><br><br>
       <b>Capacité :</b>
       <input type="text" id="capacite"/><br><br>
       <b>E-mail :</b>
-      <input type="email" id="email"/><br>
-      <input type='submit' id='buttonCreer' value="Modifier la salle" onclick="" disabled="true"/>
+      <input type="email" id="emailRoom" onkeyup="verifMail()"/><br>
+      <input type='submit' id='buttonCreer' value="Modifier la salle" onclick="sendResults()" disabled="true"/>
+      <br><br>
+      <input type='submit' id='buttonCancel' value="Réinitialiser" onclick="setResults()" disabled="true"/>
     </form>
 
   <br><br>
