@@ -26,7 +26,7 @@ if (isset($_GET['action']))
         }
         else
         {
-            require('view/template/403.php');
+            get403();
         }
     }
     if ($_GET['action'] == 'ModifierU') {
@@ -35,7 +35,7 @@ if (isset($_GET['action']))
         }
         else
         {
-            require('view/template/403.php');
+            get403();
         }
     }
 
@@ -45,16 +45,16 @@ if (isset($_GET['action']))
         }
         else
         {
-            require('view/template/403.php');
+            get403();
         }
     }
     if ($_GET['action'] == 'modifAssoc') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            modifAssoc(/*$_GET['id']*/);
+            modifAssoc();
         }
         else
         {
-            require('view/template/403.php');
+            get403();
         }
     }
     
@@ -65,12 +65,12 @@ else
     if (isset($_COOKIE['Utilisateur']) && $_COOKIE['Utilisateur'] != null)
     {
         //Page d'accueil
-        require('view/Login/ViewAfterLogin.php');
+        getMenu();
     }
     else
     {
         //Portail de connexion
-        require('view/Login/ViewLogin.php');
+        getPortail();
     }
 }
 
@@ -83,6 +83,5 @@ if (!empty($_POST))
     if(isset($_POST['associationModif']) && isset($_POST['assocNomModif']) && isset($_POST['emailAssocModif']) && isset($_POST['assocResModif'])){
         updateValuesBDD($_POST['associationModif'], $_POST['assocNomModif'], $_POST['emailAssocModif'], $_POST['assocResModif']);
     }
-   
 }
 ?>

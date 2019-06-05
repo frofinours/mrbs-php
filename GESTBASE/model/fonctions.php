@@ -67,6 +67,21 @@ function isAdmin($username){
 	return $result;
 }
 
+//Vérification de la suppression du compte
+function isDead($username){
+	$req = connexionBDD()->query("SELECT dateSuppression FROM mrbs_users WHERE name = '".$username."'");
+	$theRow = $req->fetch();
+	if ($theRow[0] != null)
+	{
+		$result = true;
+	}
+	else
+	{
+		$result = false;
+	}
+	return $result;
+}
+
 
 
 /****** Cécile ******/
