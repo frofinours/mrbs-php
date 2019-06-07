@@ -17,7 +17,7 @@ function setResEmail(page) {
         id_res = document.getElementById('assocResModif').value;
     }
     $.ajax({
-        url: 'model/getEmail.php',
+        url: 'model/Association/getEmail.php',
         data: 'id_res=' + id_res,
         type: 'POST',
         success: function(data){
@@ -49,7 +49,7 @@ function display(name, id){
             'table': 'mrbs_league'
         };
         $.ajax({
-            url: 'model/getAssocInfos.php',
+            url: 'model/Association/getAssocInfos.php',
             data: json,
             type: 'POST',
             success: function(data) {

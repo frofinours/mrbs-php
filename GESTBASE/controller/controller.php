@@ -1,43 +1,39 @@
 <?php
 
-    /****** Maxime ******/
+/****** Maxime ******/
 
-    function getUtilisateurs()
-    {
-        require('model/PDO.php');
-        require('model/fonctions.php');
-        $userList = getUsers();
-        require('view/template/Header.php');
-        require('view/Utilisateur/Utilisateurs.php');
-    }
-
-    function addUtilisateur()
-    {
-        require('view/template/Header.php');
-        require('view/Utilisateur/AjouterU.php');
-    }
-
-    function addUtilisateurBDD($name, $email, $password)
-    {
-        require('model/PDO.php');
-        require('model/fonctions.php');
-        addUser($name, $email, $password);
-    }
-
-    function editUtilisateurId($id)
-    {
-        $usertoEdit = editUserId($id);
-        require('view/template/Header.php');
-        require('view/Utilisateur/ModifierU.php');
-    }
-
-    function deleteUtilisateurId($id)
-    {
-        deleteUserId($id);
-    }
+function getUtilisateurs()
+{
+    require('model/PDO.php');
+    require('model/fonctions.php');
+    $userList = getUsers();
+    require('view/template/Header.php');
+    require('view/Utilisateur/Utilisateurs.php');
+}
+function addUtilisateur()
+{
+    require('view/template/Header.php');
+    require('view/Utilisateur/AjouterU.php');
+}
+function addUtilisateurBDD($name, $email, $password)
+{
+    require('model/PDO.php');
+    require('model/fonctions.php');
+    addUser($name, $email, $password);
+}
+function editUtilisateurId($id)
+{
+    $usertoEdit = editUserId($id);
+    require('view/template/Header.php');
+    require('view/Utilisateur/ModifierU.php');
+}
+function deleteUtilisateurId($id)
+{
+    deleteUserId($id);
+}
 
 
-    /****** Cécile ******/
+/****** Cécile ******/
 
 function menuAssoc() 
 {
@@ -68,7 +64,7 @@ function modifAssocBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
 }
 
 
-    /****** Louise ******/
+/****** Louise ******/
 
 function getConnexion($username, $password)
 {
@@ -120,6 +116,36 @@ function getPortail(){
 
 function getMenu(){
     require('view/Login/ViewAfterLogin.php');
+}
+
+
+/****** Zakarya ******/
+
+function menuSalle(){
+    require('view/Salle/menuSalle.php');
+}
+
+function editSalle()
+{
+    require('model/PDO.php');
+    require('model/fonctions.php');
+    $salles = getRooms();
+    $types = getAreas();
+    require('view/Salle/editSalle.php');
+    
+}
+
+function viewSalle()
+{
+    require('model/PDO.php');
+    require('model/fonctions.php');
+    $salles = getRooms();
+    require('view/Salle/viewSalle.php');
+}
+
+function lostinspace()
+{
+    require('view/template/lostinspace.php');
 }
 
 

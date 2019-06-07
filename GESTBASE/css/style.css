@@ -1,15 +1,45 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+@font-face {
+	font-family: 'SF-UI-Display-Regular';
+	src: 		  url('SF-UI-Display-Regular.ttf') format('truetype'),
+  url('SF-UI-Display-Regular.otf')
+   format('otf');
+}
+#buttonRetour, #buttonCreer, #menuButtonEdit, #menuButtonView{
+    font-weight: bold;
+}
 
+
+/****idk****/
+h1 {
+    text-align: center;
+    font-family: 'SF-UI-Display-Regular','Georgia','Times New Roman';
+}
+
+table,th,td
+{
+    border:2px solid rgb(141, 141, 141);
+}
+table
+{
+    border-collapse:collapse;
+    width:100%;
+}
+td
+{
+    height:30px;
+}
+tbody tr:nth-child(even)
+{
+  background: rgb(219, 241, 255);
+}
 
 /****Formulaires****/
 .formulaire {
     background-image: url("background.jfif");
 }
 
-h1 {
-    text-align: center;
-}
 
 .form {
     max-width: 50%;

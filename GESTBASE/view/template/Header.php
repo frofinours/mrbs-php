@@ -9,7 +9,7 @@
                 <ul>
                     <li><a id="Home" href="view/template/JavascriptError.php" onclick="HomeReturn();return false;">Home</a></li>                                                                                                 
                     <li><a href='?action=utilisateurs'>Utilisateurs</a></li>
-                    <li><a href='#'>Salles</a></li>
+                    <li><a href='?action=menuSalle'>Salles</a></li>
                     <li><a href='?action=menuAssoc'>Associations</a></li>
                     <span id='ProfilU'>
                         <li>

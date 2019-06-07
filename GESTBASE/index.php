@@ -8,19 +8,25 @@ if (isset($_GET['action']))
     if ($_GET['action'] == 'utilisateurs') {
         getUtilisateurs();
     }
-    if ($_GET['action'] == 'ConnexionU') {
+    else if ($_GET['action'] == 'ConnexionU') {
         getConnexion($_POST['username'], $_POST['password']);
     }
-    if ($_GET['action'] == 'DeconnexionU') {
+    else if ($_GET['action'] == 'DeconnexionU') {
         getDeconnexion();
     }
-    if ($_GET['action'] == 'menuAssoc') {
+    else if ($_GET['action'] == 'menuAssoc') {
         menuAssoc();
+    }
+    else if ($_GET['action'] == 'menuSalle'){
+        menuSalle();
+    }
+    else if ($_GET['action'] =='viewSalle'){
+        viewSalle();
     }
 
     /** Droits admin nécessaire**/
 
-    if ($_GET['action'] == 'AjouterU') {
+    else if ($_GET['action'] == 'AjouterU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             addUtilisateur();
         }
@@ -29,7 +35,7 @@ if (isset($_GET['action']))
             get403();
         }
     }
-    if ($_GET['action'] == 'ModifierU') {
+    else if ($_GET['action'] == 'ModifierU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             editUtilisateurId($_GET['id']);
         }
@@ -38,8 +44,7 @@ if (isset($_GET['action']))
             get403();
         }
     }
-
-    if ($_GET['action'] == 'creerAssoc') {
+    else if ($_GET['action'] == 'creerAssoc') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             creationAssoc();
         }
@@ -48,7 +53,7 @@ if (isset($_GET['action']))
             get403();
         }
     }
-    if ($_GET['action'] == 'modifAssoc') {
+    else if ($_GET['action'] == 'modifAssoc') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             modifAssoc();
         }
@@ -57,7 +62,18 @@ if (isset($_GET['action']))
             get403();
         }
     }
-    
+    else if($_GET['action'] == 'editSalle'){
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
+            editSalle();
+        }
+        else
+        {
+            get403();
+        }
+    }
+    else{
+        lostinspace();
+    }
 }
 else
 {

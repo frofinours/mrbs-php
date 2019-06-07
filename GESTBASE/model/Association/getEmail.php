@@ -1,5 +1,5 @@
 <?php
-    include 'PDO.php';
+    include '../PDO.php';
     $id_res = $_POST['id_res'];
     $bdd = connexionBDD();
     if(isset($id_res)){
