@@ -1,5 +1,10 @@
 Adresse IP du serveur linux: http://172.17.21.14/
 
+## Documentation utilisateur
+URL:
+
+## Documentation technique
+URL:
 
 
 ## phpMyAdmin
@@ -19,5 +24,6 @@ mdp: mdp
 id: admin
 mdp: admin
 ```
+
 
 
