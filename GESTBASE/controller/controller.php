@@ -26,6 +26,16 @@
 
     function editUtilisateurId($id)
     {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $usertoEdit = userToEdit($id);
+        require('view/template/Header.php');
+        require('view/Utilisateur/ModifierU.php');
+    }
+    function editUtilisateurBDD($id)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
         $usertoEdit = editUserId($id);
         require('view/template/Header.php');
         require('view/Utilisateur/ModifierU.php');
@@ -33,6 +43,8 @@
 
     function deleteUtilisateurId($id)
     {
+        require('model/PDO.php');
+        require('model/fonctions.php');
         deleteUserId($id);
     }
 

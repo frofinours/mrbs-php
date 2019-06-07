@@ -28,7 +28,7 @@
     }
     else
     {
-        echo "<script>window.location = 'http://127.0.0.1/things/Lwiz/';</script>";
+        echo "<script>window.location = 'http://127.0.0.1/mrbsPPE/GESTBASE';</script>";
     }
 ?>
 <script src="js/Template/Redirection.js"></script>

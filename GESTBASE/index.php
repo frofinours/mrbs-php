@@ -41,18 +41,30 @@ if (isset($_GET['action']))
     }
 
     if ($_GET['action'] == 'ModifierU') {
-        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            editUtilisateurId($_GET['id']);
-        }
-        else
+        if(isset($_GET['id']))
         {
-            require('view/template/403.php');
+            if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1)
+            {
+                editUtilisateurId($_GET['id']);
+            }
+            else
+            {
+                require('view/template/403.php');
+            }
         }
     }
+        if (!empty($_POST)) 
+            {
+                if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) 
+                {
+                    editUtilisateurBDD($_POST['id'], $_POST['name'], $_POST['email'], $_POST['password']);
+                }  
+            }
 
-    if ($_POST['action'] == 'deleteU') {
+    if ($_GET['action'] == 'deleteU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            deleteUtilisateurId($_POST['id']);
+            $id = $_GET['id'];
+            deleteUtilisateurId($id);
         }
         else
         {

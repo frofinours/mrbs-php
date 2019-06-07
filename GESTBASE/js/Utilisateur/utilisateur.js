@@ -10,7 +10,7 @@ function emailConfirm(){
     $.ajax({
         url: '?action=checkEmail',
         data: document.getElementById("email").value,
-        type: 'POST',
+        type: 'GET',
         success:function(){
             if($nblEmail >= 1){
                 document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.")
@@ -22,7 +22,7 @@ function NameConfirm(){
     $.ajax({
         url: '?action=checkName',
         data: document.getElementById("name").value,
-        type: 'POST',
+        type: 'GET',
         success:function(){
             if($nblName >= 1){
                 document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé")
@@ -55,7 +55,7 @@ $(document).ready(function () {
                 text: "Modifier l'utilisateur",
                 action: function (e, dt, node, config) {
                     var id = table.row({ selected: true }).data()[0];
-                    window.location.href = ('?action=ModifierU?id=' + id)
+                    window.location.href = ('?action=ModifierU&id=' + id)
                 }
             },
             {
@@ -66,8 +66,12 @@ $(document).ready(function () {
                     $.ajax({
                         url: '?action=deleteU',
                         data: 'id=' + id,
-                        type: 'POST'
+                        type: 'GET',
+                        success: function(){
+                            window.location.href = ('?action=utilisateurs')
+                        }
                     })
+
                 }
             },
             {

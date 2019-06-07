@@ -25,6 +25,7 @@
                 <th>id</th>
                 <th>Nom</th>
                 <th>Email</th>
+                <th>Role</th>
                 <th>Supprimé</th>
             </tr>
         </thead>
@@ -34,7 +35,7 @@
             {
                 ?>
                 <tr>
-                    <td> <?php echo $users['id']; ?> </td>
+                <td> <?php echo $users['id']; ?> </td>
                     <td>
                         <?php echo $users['name']; ?>
                     </td>
@@ -43,10 +44,19 @@
                     </td>
                     <td>
                         <?php 
-                        if ($users['dateSuppression'] == null) {
-                            echo ("Non");
+                        if ($users['level'] == 2) {
+                            echo ("Admin");
                         } else {
-                            $users['dateSuppression'];
+                            echo("utilisateur");
+                        }
+                        ?>
+                    </td>
+                    <td>
+                        <?php 
+                        if ($users['dateSuppression'] == null) {
+                            echo ("Membre actif");
+                        } else {
+                            echo($users['dateSuppression']);
                         }
                         ?>
                     </td>
