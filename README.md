@@ -1,10 +1,10 @@
 Adresse IP du serveur linux: http://172.17.21.14/
 
 ## Documentation utilisateur
-URL:
+URL: (bientôt disponible)
 
 ## Documentation technique
-URL:
+URL: (bientôt disponible)
 
 
 ## phpMyAdmin
