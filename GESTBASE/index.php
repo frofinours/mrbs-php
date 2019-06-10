@@ -24,9 +24,9 @@ if (isset($_GET['action']))
         { 
             if (!empty($_POST)) 
             {
-                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) 
+                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['password'])) 
                 {
-                    addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['password']);
+                    addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['role'], $_POST['password']);
                 }  
             }
             else
@@ -45,7 +45,7 @@ if (isset($_GET['action']))
         {
             if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1)
             {
-                editUtilisateurId($_GET['id']);
+                editUtilisateurId($_GET['id']);       
             }
             else
             {
@@ -55,9 +55,10 @@ if (isset($_GET['action']))
     }
         if (!empty($_POST)) 
             {
-                if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) 
+                if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['password'])) 
                 {
-                    editUtilisateurBDD($_POST['id'], $_POST['name'], $_POST['email'], $_POST['password']);
+                    var_dump("Salut");
+                    editUtilisateurBDD($_POST['id'], $_POST['name'], $_POST['email'], $_POST['role'], $_POST['password']);
                 }  
             }
 

@@ -8,13 +8,14 @@ function getUsers()
 	return $result;
 }
 
-function addUser($name, $email, $password)
+function addUser($name, $email,$level, $password)
 {
-	$req = connexionBDD()->prepare('INSERT INTO mrbs_users(name, email, password)
-		VALUES(:name, :email, :password)');
+	$req = connexionBDD()->prepare('INSERT INTO mrbs_users(name, email, level, password)
+		VALUES(:name, :email, :level, :password)');
 	$req->execute(array(
 		'name' => $name,
 		'email' => $email,
+		'level' => $level,
 		'password' => $password
 	));
 }
@@ -23,14 +24,15 @@ function userToEdit($id)
 	$result = connexionBDD()->query('SELECT * FROM mrbs_users WHERE id = '.$id.'');
 	return $result;
 }
-function editUserId($id, $name, $email, $password)
+function editUserId($id, $name, $email, $level, $password)
 {
-	$req = connexionBDD()->prepare('UPDATE mrbs_users SET name = :name , email = :email , password = :password WHERE id = :id)
+	$req = connexionBDD()->prepare('UPDATE mrbs_users SET name = :name , email = :email ,level = :level, password = :password WHERE id = :id)
 		VALUES(:name, :email, :password)');
 	$req->execute(array(
 		'id' => $id,
 		'name' => $name,
 		'email' => $email,
+		'level' => $level,
 		'password' => $password
 	));
 }

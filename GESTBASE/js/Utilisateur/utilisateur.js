@@ -54,8 +54,13 @@ $(document).ready(function () {
                 extend: 'selectedSingle',
                 text: "Modifier l'utilisateur",
                 action: function (e, dt, node, config) {
-                    var id = table.row({ selected: true }).data()[0];
-                    window.location.href = ('?action=ModifierU&id=' + id)
+                    if(table.row({ selected: true }).data()[4] == "Membre actif"){
+                        var id = table.row({ selected: true }).data()[0];
+                        window.location.href = ('?action=ModifierU&id=' + id)
+                    }
+                    else{
+                        alert("Vous tentez de modifier un utilisateur supprimé, impossible.");
+                    }
                 }
             },
             {

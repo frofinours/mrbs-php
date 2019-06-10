@@ -17,11 +17,13 @@
         require('view/Utilisateur/AjouterU.php');
     }
 
-    function addUtilisateurBDD($name, $email, $password)
+    function addUtilisateurBDD($name, $email,$role, $password)
     {
         require('model/PDO.php');
         require('model/fonctions.php');
-        addUser($name, $email, $password);
+        $password = md5($password);
+        addUser($name, $email,$role, $password);
+        header('Location: ?action=utilisateurs');
     }
 
     function editUtilisateurId($id)
@@ -32,13 +34,13 @@
         require('view/template/Header.php');
         require('view/Utilisateur/ModifierU.php');
     }
-    function editUtilisateurBDD($id)
+    function editUtilisateurBDD($id, $name, $email,$role, $password)
     {
         require('model/PDO.php');
         require('model/fonctions.php');
-        $usertoEdit = editUserId($id);
-        require('view/template/Header.php');
-        require('view/Utilisateur/ModifierU.php');
+        $password = md5($password);
+        $usertoEdit = editUserId($id, $name, $email,$role, $password);
+        header('Location: ?action=utilisateurs');
     }
 
     function deleteUtilisateurId($id)

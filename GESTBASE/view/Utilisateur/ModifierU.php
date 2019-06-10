@@ -19,8 +19,13 @@ echo '<div class="form">
             <input value=',$user['id'],' type="hidden" id="id" name="id">
             <label>Nom </label><input onkeyup="','NameConfirm()','" value=',$user['name'],' type="text" id="name" name="name" required pattern="[A-Za-z]{3,20}" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
             <label>Email </label><input onkeyup="','emailConfirm()','" value=',$user['email'],' type="email" id="email" name="email" required><br /><br />
-            <label>mot de passe </label><input  type="password" id="mdp" name="mdp" required minlength="3" onkeyup="mdpConfirm();"></span><br /><br />
-            <label>mot de passe confirmation </label><input  type="password" id="mdpc" name="mdpc" required minlength="3" onkeyup="mdpConfirm();"><br /><br />
+            <label>Role </label>
+            <select id="role" name="role">
+                <option value="0">Utilisateur</option>
+                <option value="2">Administrateur</option>
+            </select>
+            <label>mot de passe </label><input  type="password" id="password" name="password" required minlength="3" onkeyup="','mdpConfirm()','"></span><br /><br />
+            <label>mot de passe confirmation </label><input  type="password" id="mdpc" name="mdpc" required minlength="3" onkeyup="','mdpConfirm()','"><br /><br />
             <input type="submit" value="Envoyer">
             <input type="reset" value="Réinitialiser" id="reset">
             <input type="button" value="Retour" onclick="window.location=','"Utilisateurs.php"','">
