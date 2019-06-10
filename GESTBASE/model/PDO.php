@@ -3,7 +3,7 @@
 function connexionBDD(){
     try
     {
-        //$bdd = new PDO('mysql:host=172.17.21.14;dbname=mrbs;charset=utf8', 'root', 'mdp');
+        // $bdd = new PDO('mysql:host=172.17.21.14;dbname=mrbs;charset=utf8', 'root', 'mdp');
         $bdd = new PDO('mysql:host=localhost;dbname=mrbs;charset=utf8', 'root', 'root');
     
     }

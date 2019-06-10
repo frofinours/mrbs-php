@@ -13,6 +13,7 @@
 
 <body class="formulaire"> 
   <div class="form">
+    <form id='editSalleForm' action='?action=editSalle' method='POST'>
     <h1>Gestion des salles</h1>
     <input type='button' id='buttonRetour' value="<- Retour" onclick="document.location.href='?action=menuSalle'"/>
 
@@ -20,18 +21,17 @@
 
   <b>Salle : </b>
 
-  <select id="roomSelect" name="salleSelect" value="" onchange='setResults()'>
-  <option value="">--Choisissez une salle--</option>
 
+  <select id="roomSelect" name="salleSelect" value="" onchange='setResults()'>
+  <option value=null selected>--Choisissez une salle--</option>
   
 <?php
 
     foreach($salles as $salle)
       {
-        echo "<option value='".$salle->room_name."'>".$salle->room_name."</option>";
+        echo "<option value='".$salle->id."'>".$salle->room_name."</option>";
       }
 ?>
-
 
   </select>
   <br><br>
@@ -41,24 +41,24 @@
       <option value="">--Choisissez un type de salle--</option>
       <?php
         foreach($types as $type){
-          echo "<option value'".$type['id']."'>".$type['area_name']."</option>";
+          echo "<option value='".$type['id']."'>".$type['area_name']."</option>";
         }
 
         ?>
         </select>
 
-
       <b>Description :</b>
-      <input type="text" id="description"/><br><br>
+      <input type="text" name="description" id="description"/><br><br>
       <b>Capacité :</b>
-      <input type="text" id="capacite"/><br><br>
+      <input type="text" name="capacite" id="capacite"/><br><br>
       <b>E-mail :</b>
-      <input type="email" id="emailRoom" onkeyup="verifMail()"/><br>
-      <input type='submit' id='buttonCreer' value="Modifier la salle" onclick="sendResults()" disabled="true"/>
+      <input type="email" name="emailRoom" id="emailRoom" onkeyup="verifMail()"/><br>
+      <input type='submit' id='buttonModif' value="Modifier la salle" disabled="true"/>
       <br><br>
-      <input type='submit' id='buttonCancel' value="Réinitialiser" onclick="setResults()" disabled="true"/>
+      <input type='button' id='buttonCancel' value="Réinitialiser" onclick="setResults()" disabled="true"/>
     </form>
-
+  </div>
+</body>
   <br><br>
 
 

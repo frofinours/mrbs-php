@@ -183,45 +183,19 @@ function getAreas(){
 	return $salles;
   }
   
-  function envoiBDD(){ 
-				  
+  function updateRoomValuesBDD($id_salle, $type_salle, $descriptionSalle, $capaciteSalle, $emailSalle){
+	$message = '';
+	$bdd = connexionBDD();
 	try{
-		$test = "test";
-  
-		echo $test;
-  
-		// $civilite = $_POST['civilite'];
-		// $nom = $_POST['nom'];
-		// $prenom = $_POST['prenom'];
-		// $dateNaissance = $_POST['dateNaissance'];
-		// $mail = $_POST['mail'];
-		// $mdp1 = $_POST['mdp1'];
-		// $country = $_POST['id_pays'];
-		// $avatar = $_POST['id_galerieAvatar'];
-  
-	  // $req = "UPDATE "
-  
-  
-  
-		// $req = $bdd->prepare('INSERT INTO utilisateur(pseudo, civilite, nom, prenom, dateNaissance, adresseMail, motPasse, id_pays, id_galerieAvatar) VALUES(:pseudo, :civilite, :nom, :prenom, :dateNaissance, :adresseMail, :motPasse, :id_pays, :id_galerieAvatar)'); 
-		
-		// $req->execute(array(
-		//   'pseudo' => $username,
-		//   'civilite' => $civilite,
-		//   'nom' => $nom,
-		//   'prenom' => $prenom,
-		//   'dateNaissance' => $dateNaissance,
-		//   'adresseMail' => $mail,					
-		//   'motPasse' => $mdp1,
-		//   'id_pays' => $country,
-		//   'id_galerieAvatar' => $avatar
-		//   ));
-  
-		}
-		catch(Exception $e)
-		{
-		  alert('Erreur : '.$e->getMessage());
-		}
-	  
-  }
+		$request = "UPDATE mrbs_room SET description = '".$descriptionSalle."', room_admin_email = '".$emailSalle."', area_id = '".$type_salle."', capacity = '".$capaciteSalle."' WHERE id = '".$id_salle."';";
+		$bdd->exec($request);
+		$message = 'Données transmises avec succès';
+	}
+	catch(Exception $e){
+		die("Erreur : " .$e->getMessage());
+		$message = $e->getMessage();
+	}
+	echo $id_salle;
+	echo $message;
+}
 ?>

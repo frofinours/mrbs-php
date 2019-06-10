@@ -99,5 +99,10 @@ if (!empty($_POST))
     if(isset($_POST['associationModif']) && isset($_POST['assocNomModif']) && isset($_POST['emailAssocModif']) && isset($_POST['assocResModif'])){
         updateValuesBDD($_POST['associationModif'], $_POST['assocNomModif'], $_POST['emailAssocModif'], $_POST['assocResModif']);
     }
+
+    if(isset($_POST['salleSelect']) && isset($_POST['typeSelect']) && isset($_POST['description']) && isset($_POST['capacite']) && isset($_POST['emailRoom'])){
+        updateRoomValuesBDD($_POST['salleSelect'], $_POST['typeSelect'], $_POST['description'], $_POST['capacite'], $_POST['emailRoom']);
+    }
+
 }
 ?>

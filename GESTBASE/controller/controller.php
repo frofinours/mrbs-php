@@ -122,6 +122,7 @@ function getMenu(){
 /****** Zakarya ******/
 
 function menuSalle(){
+    require('view/template/Header.php');
     require('view/Salle/menuSalle.php');
 }
 
@@ -131,20 +132,23 @@ function editSalle()
     require('model/fonctions.php');
     $salles = getRooms();
     $types = getAreas();
+    require('view/template/Header.php');
     require('view/Salle/editSalle.php');
-    
 }
+
 
 function viewSalle()
 {
     require('model/PDO.php');
     require('model/fonctions.php');
     $salles = getRooms();
+    require('view/template/Header.php');
     require('view/Salle/viewSalle.php');
 }
 
 function lostinspace()
 {
+    require('view/template/Header.php');
     require('view/template/lostinspace.php');
 }
 

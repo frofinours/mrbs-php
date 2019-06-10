@@ -46,12 +46,6 @@
           <td><center><?php echo $salle->description ?><center></td>
           <td><center><?php echo $salle->capacity ?><center></td>
           <td><center><?php echo $salle->room_admin_email ?><center></td>
-
-
-
-
-
-      
         </tr>
     <?php
       }

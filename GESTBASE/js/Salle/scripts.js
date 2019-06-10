@@ -20,13 +20,13 @@ function setResults() {
         document.getElementById('description').value = "";
         document.getElementById('capacite').value = "";
         document.getElementById('emailRoom').value = "";
-        document.getElementById('buttonCreer').disabled = true;
+        document.getElementById('buttonModif').disabled = true;
         document.getElementById('buttonCancel').disabled = true;
         document.getElementById('emailRoom').style.border= "none";
     }
     else
     {
-        document.getElementById('buttonCreer').disabled = false;
+        document.getElementById('buttonModif').disabled = false;
         document.getElementById('buttonCancel').disabled = false;
         document.getElementById('emailRoom').style.border= "none";
         $.ajax({
@@ -65,28 +65,4 @@ function setResults() {
             }
         });
     }
-}
-
-function sendResults(){
-    var room_id = document.getElementById('roomSelect').selectedIndex;
-    var area = document.getElementById('area').value;
-    var desc = document.getElementById('description').value;
-    var cap = document.getElementById('capacite').value;
-    var emailRoom = document.getElementById('emailRoom').value;
-    $.ajax({
-        type: "POST",
-        url: 'model/fonctions.php',
-        action: 'envoiBDD',
-        data:{
-        'id': room_id,
-        'area': area,
-        'cap' : cap,
-        'desc': desc,
-        'emailRoom': emailRoom}
-        ,
-        success:function(result) {
-          alert(result);
-        }
-
-   });
 }
