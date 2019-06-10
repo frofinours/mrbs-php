@@ -57,7 +57,6 @@ if (isset($_GET['action']))
             {
                 if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['password'])) 
                 {
-                    var_dump("Salut");
                     editUtilisateurBDD($_POST['id'], $_POST['name'], $_POST['email'], $_POST['role'], $_POST['password']);
                 }  
             }
@@ -66,6 +65,28 @@ if (isset($_GET['action']))
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
             $id = $_GET['id'];
             deleteUtilisateurId($id);
+        }
+        else
+        {
+            require('view/template/403.php');
+        }
+    }
+
+    if ($_GET['action'] == 'checkEmail') {
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
+            $email = $_GET['email'];
+            checkEmailExist($email);
+        }
+        else
+        {
+            require('view/template/403.php');
+        }
+    }
+
+    if ($_GET['action'] == 'checkName') {
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
+            $name = $_GET['name'];
+            checkNameExist($name);
         }
         else
         {

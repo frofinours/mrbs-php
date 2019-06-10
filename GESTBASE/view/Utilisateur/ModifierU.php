@@ -7,6 +7,7 @@
     <title>Modifier utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/Utilisateur/utilisateur.js"></script>
 </head>
 <body class="formulaire">
@@ -17,7 +18,7 @@ echo '<div class="form">
         <h1>Modifier un utilisateur</h1>
         <form id="formulaireModifierU" method="post" action="?action=ModifierU">
             <input value=',$user['id'],' type="hidden" id="id" name="id">
-            <label>Nom </label><input onkeyup="','NameConfirm()','" value=',$user['name'],' type="text" id="name" name="name" required pattern="[A-Za-z]{3,20}" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
+            <label>Nom </label><input onkeyup="','nameConfirm()','" value=',$user['name'],' type="text" id="name" name="name" required pattern="[A-Za-z]{3,20}" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
             <label>Email </label><input onkeyup="','emailConfirm()','" value=',$user['email'],' type="email" id="email" name="email" required><br /><br />
             <label>Role </label>
             <select id="role" name="role">

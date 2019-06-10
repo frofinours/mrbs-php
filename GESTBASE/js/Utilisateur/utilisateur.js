@@ -1,5 +1,5 @@
 function mdpConfirm() {
-    if (document.getElementById("mdp").value != document.getElementById("mdpc").value) {
+    if (document.getElementById("password").value != document.getElementById("mdpc").value) {
         document.getElementById("mdpc").setCustomValidity("Les mots de passes ne correspondent pas.");
     }
     else {
@@ -7,24 +7,26 @@ function mdpConfirm() {
     }
 };
 function emailConfirm(){
+    var email = document.getElementById("email").value
     $.ajax({
         url: '?action=checkEmail',
-        data: document.getElementById("email").value,
+        data: "email=" + email,
         type: 'GET',
-        success:function(){
-            if($nblEmail >= 1){
+        success:function(nblEmail){
+            alert("succès " + nblEmail)
+            if(nblEmail >= 1){
                 document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.")
             }
         }
     })
 }
-function NameConfirm(){
+function nameConfirm(){
     $.ajax({
         url: '?action=checkName',
-        data: document.getElementById("name").value,
+        data: "name=" + document.getElementById("name").value,
         type: 'GET',
-        success:function(){
-            if($nblName >= 1){
+        success:function(nblName){
+            if(nblName >= 1){
                 document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé")
             }
         }
@@ -59,7 +61,7 @@ $(document).ready(function () {
                         window.location.href = ('?action=ModifierU&id=' + id)
                     }
                     else{
-                        alert("Vous tentez de modifier un utilisateur supprimé, impossible.");
+                        alert("Vous tentez de modifier un utilisateur supprimé, c'est impossible.");
                     }
                 }
             },

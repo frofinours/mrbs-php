@@ -26,8 +26,7 @@ function userToEdit($id)
 }
 function editUserId($id, $name, $email, $level, $password)
 {
-	$req = connexionBDD()->prepare('UPDATE mrbs_users SET name = :name , email = :email ,level = :level, password = :password WHERE id = :id)
-		VALUES(:name, :email, :password)');
+	$req = connexionBDD()->prepare('UPDATE mrbs_users SET name = :name , email = :email ,level = :level, password = :password WHERE id = :id');
 	$req->execute(array(
 		'id' => $id,
 		'name' => $name,
@@ -43,8 +42,8 @@ function deleteUserId($id)
 }
 function checkEmail($email)
 {
+	var_dump("passage dans checkEmail bdd");
 	return nbLignesRequete('SELECT id FROM mrbs_users WHERE email = '.$email.'');
-	
 }
 function checkName($name)
 {

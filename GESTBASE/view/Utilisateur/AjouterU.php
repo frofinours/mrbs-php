@@ -7,16 +7,18 @@
     <title>Ajout utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/Utilisateur/utilisateur.js"></script>
+    
 </head>
 
 <body class="formulaire">
     <div class="form">
         <h1>Ajouter un utilisateur</h1>
         <form id="FormAddUser" method="POST" action="?action=AjouterU">
-            <label>Nom </label><input type="text" id="name" name="name" pattern="[A-Za-z]{3,20}" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
+            <label>Nom </label><input type="text" id="name" name="name" pattern="[A-Za-z]{3,20}" onkeyup="nameConfirm();" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
 
-            <label>Email </label><input type="email" id="email" name="email" required><br /><br />
+            <label>Email </label><input type="email" id="email" name="email" onkeyup="emailConfirm();" required><br /><br />
             
             <label>Role </label>
             <select id="role" name="role">
