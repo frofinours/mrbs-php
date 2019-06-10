@@ -42,8 +42,8 @@ function deleteUserId($id)
 }
 function checkEmail($email)
 {
-	var_dump("passage dans checkEmail bdd");
-	return nbLignesRequete('SELECT id FROM mrbs_users WHERE email = '.$email.'');
+	$result = nbLignesRequete('SELECT id FROM mrbs_users WHERE email = '.$email.'');
+	return result;
 }
 function checkName($name)
 {

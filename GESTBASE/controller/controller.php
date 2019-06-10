@@ -52,12 +52,17 @@
 
     function checkEmailExist($email)
     {
-        var_dump("Passage dans checkEmail controlleur");
+        require('model/PDO.php');
+        require('model/fonctions.php');
         $nblEmail = checkEmail($email);
+        echo json_encode($nblEmail);
     }
     function checkNameExist($name)
     {
+        require('model/PDO.php');
+        require('model/fonctions.php');
         $nblName = checkName($name);
+        echo json_encode($nblname);
     }
 
 

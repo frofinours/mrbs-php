@@ -12,9 +12,9 @@ function emailConfirm(){
         url: '?action=checkEmail',
         data: "email=" + email,
         type: 'GET',
-        success:function(nblEmail){
-            alert("succès " + nblEmail)
-            if(nblEmail >= 1){
+        success:function(data){
+            alert("succès " + data);
+            if(data >= 1){
                 document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.")
             }
         }
@@ -25,8 +25,9 @@ function nameConfirm(){
         url: '?action=checkName',
         data: "name=" + document.getElementById("name").value,
         type: 'GET',
-        success:function(nblName){
-            if(nblName >= 1){
+        success:function(data){
+            alert(data);
+            if(data >= 1){
                 document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé")
             }
         }
