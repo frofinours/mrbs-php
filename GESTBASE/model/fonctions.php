@@ -153,10 +153,16 @@ function updateValuesBDD($id_assoc, $nom_assoc, $mail_assoc, $id_res){
 function getAreas(){
 	$result = connexionBDD()->query('SELECT id, area_name FROM mrbs_area;');
 	return $result;
-  }
+}
+
+function getAreaFromId($unIdArea){
+	$result = connexionBDD()->query('SELECT area_name FROM mrbs_area WHERE id = '.$unIdArea)->FETCH(PDO::FETCH_OBJ);
+	// $result->setFetchMode(PDO::FETCH_OBJ);
+	return $result->area_name;
+}
   
-  function getRooms()
-  {
+function getRooms()
+{
 	$requete = "SELECT * FROM mrbs_room";
 	$salles = array();
   
@@ -181,9 +187,9 @@ function getAreas(){
 	}
 	
 	return $salles;
-  }
+}
   
-  function updateRoomValuesBDD($id_salle, $type_salle, $descriptionSalle, $capaciteSalle, $emailSalle){
+function updateRoomValuesBDD($id_salle, $type_salle, $descriptionSalle, $capaciteSalle, $emailSalle){
 	$message = '';
 	$bdd = connexionBDD();
 	try{

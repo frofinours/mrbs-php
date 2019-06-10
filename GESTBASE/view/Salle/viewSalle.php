@@ -38,7 +38,7 @@
         ?>
         <tr>
           <td><center><?php echo $salle->room_name ?><center></td>
-          <td><center><?php echo $salle->area_id ?><center></td>
+          <td><center><?php echo getAreaFromId($salle->area_id) ?><center></td>
           <td><center><?php echo $salle->description ?><center></td>
           <td><center><?php echo $salle->capacity ?><center></td>
           <td><center><?php echo $salle->room_admin_email ?><center></td>
