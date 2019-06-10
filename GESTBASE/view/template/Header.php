@@ -7,13 +7,14 @@
         <div class="userBanner">
             <nav class='menu' id='SessionU'>
                 <ul>
-                    <li><a id="Home" href="view/template/JavascriptError.php" onclick="HomeReturn();return false;">Home</a></li>                                                                                                 
+                    <li><a id="Home" href="view/template/JavascriptError.php" onclick="HomeReturn();return false;">Home</a></li>         
+
                     <li><a href='?action=utilisateurs'>Utilisateurs</a></li>
                     <li><a href='?action=menuSalle'>Salles</a></li>
                     <li><a href='?action=menuAssoc'>Associations</a></li>
                     <span id='ProfilU'>
                         <li>
-                        <span class='pseudo'><?php echo $_COOKIE['Utilisateur']; ?></span>
+                        <span class='pseudo'><i><?php echo $_COOKIE['Utilisateur']; ?></i></span>
                         </li>
                         <li>
                             <form id='btnDeconnexion' method='POST' action='?action=DeconnexionU'>
