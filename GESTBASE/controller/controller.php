@@ -62,7 +62,7 @@
         require('model/PDO.php');
         require('model/fonctions.php');
         $nblName = checkName($name);
-        echo json_encode($nblname);
+        echo $nblName->nblName;
     }
 
 
