@@ -1,3 +1,3 @@
 function HomeReturn(){
-    window.location = 'http://127.0.0.1/GESTBASE';
+    window.location = 'http://172.17.21.14/GESTBASE';
 }

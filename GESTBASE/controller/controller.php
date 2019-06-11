@@ -78,6 +78,7 @@ function creationAssoc()
     require('model/PDO.php');
     require('model/fonctions.php');
     $responsable = getValuesFromBDD('mrbs_users', null, null);
+    require('view/template/Header.php');
     require('view/Association/creerAssoc.php');
 }
 function modifAssoc()
@@ -86,6 +87,7 @@ function modifAssoc()
     require('model/fonctions.php');
     $responsable = getValuesFromBDD('mrbs_users', null, null);
     $associations = getValuesFromBDD('mrbs_league', null, null);
+    require('view/template/Header.php');
     require('view/Association/modifAssoc.php');
 }
 function creationAssocBDD($nom_assoc, $mail_assoc, $id_res){
@@ -108,7 +110,7 @@ function getConnexion($username, $password)
     if($theRow == false)
     {
         //On le renvoie au portail de connexion si la requête a retourné false pour retenter la connexion
-        echo "<script>window.location = 'http://127.0.0.1/GESTBASE'</script>";
+        echo "<script>window.location = 'http://172.17.21.14/GESTBASE'</script>";
     }
     else
     {
@@ -127,7 +129,7 @@ function getConnexion($username, $password)
         //Cela évite de faire planter l'app au F5 ou si l'utilisateur appuie sur "retour"
         require('view/Login/ViewAfterLogin.php');
         a:
-        echo "<script>window.location = 'http://127.0.0.1/GESTBASE'</script>";
+        echo "<script>window.location = 'http://172.17.21.14/GESTBASE'</script>";
     }
     
 }
@@ -136,7 +138,7 @@ function getDeconnexion()
 {
     require('model/fonctions.php');
     logout();
-    echo "<script>window.location = 'http://127.0.0.1/GESTBASE'</script>";
+    echo "<script>window.location = 'http://172.17.21.14/GESTBASE'</script>";
 }
 
 function get403(){

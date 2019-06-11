@@ -1,3 +1,5 @@
+<?php header('Content-Type: text/html; charset=utf-8');
+?>
 <header class="Entete">
     <?php 
     //On vérifie l'existence du cookie pour savoir si l'utilisateur est toujours connecté ou non
@@ -29,7 +31,7 @@
     }
     else
     {
-        echo "<script>window.location = 'http://127.0.0.1/GESTBASE';</script>";
+        echo "<script>window.location = 'http://172.17.21.14/GESTBASE';</script>";
     }
 ?>
 <script src="js/Template/Redirection.js"></script>
