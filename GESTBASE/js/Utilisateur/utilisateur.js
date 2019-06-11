@@ -28,7 +28,6 @@ function nameConfirm(){
         data: "name=" + document.getElementById("name").value,
         type: 'GET',
         success:function(nblName){
-            alert(nblName);
             if(nblName > 0){
                 document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé");
             }

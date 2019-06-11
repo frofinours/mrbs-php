@@ -40,7 +40,7 @@
         require('model/fonctions.php');
         $password = md5($password);
         $usertoEdit = editUserId($id, $name, $email,$role, $password);
-        //header('Location: ?action=utilisateurs');
+        header('Location: ?action=utilisateurs');
     }
 
     function deleteUtilisateurId($id)
