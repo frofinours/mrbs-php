@@ -3,7 +3,7 @@ Adresse IP du serveur linux: http://172.17.21.14/
 ## Documentation utilisateur
 URL: https://lyceeicof-my.sharepoint.com/:b:/g/personal/cecile_seillet_icof_fr/EZCxm9qCyxFLkPX4yFKUbVMBqh-7k9YIqnMUbLrycqG6bg?e=6UeBFy
 ## Documentation technique
-URL: (bientôt disponible)
+URL: https://lyceeicof-my.sharepoint.com/:b:/g/personal/cecile_seillet_icof_fr/EbHAhpjTpn5GqRWpVvZzvGkB_moZDIHsRe5e5MfwDXMTAQ?e=dJKH4q
 
 
 ## phpMyAdmin
