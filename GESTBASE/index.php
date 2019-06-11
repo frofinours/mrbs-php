@@ -27,8 +27,19 @@ if (isset($_GET['action']))
     /** Droits admin nécessaire**/
 
     else if ($_GET['action'] == 'AjouterU') {
-        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            addUtilisateur();
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1)
+        { 
+            if (!empty($_POST)) 
+            {
+                if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['password'])) 
+                {
+                    addUtilisateurBDD($_POST['name'], $_POST['email'], $_POST['role'], $_POST['password']);
+                }  
+            }
+            else
+            {
+                addUtilisateur();
+            }
         }
         else
         {
@@ -36,8 +47,50 @@ if (isset($_GET['action']))
         }
     }
     else if ($_GET['action'] == 'ModifierU') {
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1)
+        {
+            if(isset($_GET['id']))
+            {
+                editUtilisateurId($_GET['id']);       
+            }
+            if (!empty($_POST)) 
+            {
+                if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['password'])) 
+                {
+                    editUtilisateurBDD($_POST['id'], $_POST['name'], $_POST['email'], $_POST['role'], $_POST['password']);
+                }  
+            }
+        }
+        else
+        {
+            get403();
+        }
+        
+    }
+    else if ($_GET['action'] == 'deleteU') {
         if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
-            editUtilisateurId($_GET['id']);
+            $id = $_GET['id'];
+            deleteUtilisateurId($id);
+        }
+        else
+        {
+            get403();
+        }
+    }
+    else if ($_GET['action'] == 'checkEmail') {
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
+            $email = $_GET['email'];
+            checkEmailExist($email);
+        }
+        else
+        {
+            get403();
+        }
+    }
+    else if ($_GET['action'] == 'checkName') {
+        if(isset($_COOKIE['Level']) && $_COOKIE['Level'] == 1){
+            $name = $_GET['name'];
+            checkNameExist($name);
         }
         else
         {

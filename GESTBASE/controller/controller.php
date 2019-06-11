@@ -3,34 +3,67 @@
 /****** Maxime ******/
 
 function getUtilisateurs()
-{
-    require('model/PDO.php');
-    require('model/fonctions.php');
-    $userList = getUsers();
-    require('view/template/Header.php');
-    require('view/Utilisateur/Utilisateurs.php');
-}
-function addUtilisateur()
-{
-    require('view/template/Header.php');
-    require('view/Utilisateur/AjouterU.php');
-}
-function addUtilisateurBDD($name, $email, $password)
-{
-    require('model/PDO.php');
-    require('model/fonctions.php');
-    addUser($name, $email, $password);
-}
-function editUtilisateurId($id)
-{
-    $usertoEdit = editUserId($id);
-    require('view/template/Header.php');
-    require('view/Utilisateur/ModifierU.php');
-}
-function deleteUtilisateurId($id)
-{
-    deleteUserId($id);
-}
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $userList = getUsers();
+        require('view/template/Header.php');
+        require('view/Utilisateur/Utilisateurs.php');
+    }
+
+    function addUtilisateur()
+    {
+        require('view/template/Header.php');
+        require('view/Utilisateur/AjouterU.php');
+    }
+
+    function addUtilisateurBDD($name, $email,$role, $password)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $password = md5($password);
+        addUser($name, $email,$role, $password);
+        header('Location: ?action=utilisateurs');
+    }
+
+    function editUtilisateurId($id)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $usertoEdit = userToEdit($id);
+        require('view/template/Header.php');
+        require('view/Utilisateur/ModifierU.php');
+    }
+    function editUtilisateurBDD($id, $name, $email,$role, $password)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $password = md5($password);
+        $usertoEdit = editUserId($id, $name, $email,$role, $password);
+        header('Location: ?action=utilisateurs');
+    }
+
+    function deleteUtilisateurId($id)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        deleteUserId($id);
+    }
+
+    function checkEmailExist($email)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $nblEmail = checkEmail($email);
+        echo json_encode($nblEmail);
+    }
+    function checkNameExist($name)
+    {
+        require('model/PDO.php');
+        require('model/fonctions.php');
+        $nblName = checkName($name);
+        echo json_encode($nblName);
+    }
 
 
 /****** Cécile ******/

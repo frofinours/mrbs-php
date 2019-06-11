@@ -4,29 +4,67 @@
 
 function getUsers()
 {
-	$result = connexionBDD()->query('SELECT id, name, email, dateSuppression FROM mrbs_users');
+	$result = connexionBDD()->query('SELECT * FROM mrbs_users');
 	return $result;
 }
 
-function addUser($name, $email, $password)
+function addUser($name, $email,$level, $password)
 {
-	$req = connexionBDD()->prepare('INSERT INTO mrbs_users(name, email, password)
-		VALUES(:name, :email, :password)');
+	$req = connexionBDD()->prepare('INSERT INTO mrbs_users(name, email, level, password)
+		VALUES(:name, :email, :level, :password)');
 	$req->execute(array(
 		'name' => $name,
 		'email' => $email,
+		'level' => $level,
 		'password' => $password
 	));
 }
-function editUserId($id)
+function userToEdit($id)
 {
-	$result = connexionBDD()->query('SELECT id, name, email, dateSuppression FROM mrbs_users WHERE id = '.$id.'');
+	$result = connexionBDD()->query('SELECT * FROM mrbs_users WHERE id = '.$id.'');
 	return $result;
+}
+function editUserId($id, $name, $email, $level, $password)
+{
+	$req = connexionBDD()->prepare('UPDATE mrbs_users SET name = :name , email = :email ,level = :level, password = :password WHERE id = :id');
+	$req->execute(array(
+		'id' => $id,
+		'name' => $name,
+		'email' => $email,
+		'level' => $level,
+		'password' => $password
+	));
 }
 
 function deleteUserId($id)
 {
 	$req = connexionBDD()->exec('UPDATE mrbs_users SET dateSuppression = SYSDATE() WHERE id = '.$id.'');
+}
+function checkEmail($email)
+{
+	$result = connexionBDD()->exec('SELECT id FROM mrbs_users WHERE email = '.$email.'');
+	if ($result != false)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+	
+}
+function checkName($name)
+{
+	$result = connexionBDD()->exec('SELECT id FROM mrbs_users WHERE name = '.$name.'');
+	if ($result == false)
+	{
+		return 0;
+	}
+	else
+	{
+		return 1;
+	}
+	return $result;
 }
 
 

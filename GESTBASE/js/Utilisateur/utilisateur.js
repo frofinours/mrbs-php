@@ -1,11 +1,42 @@
 function mdpConfirm() {
-    if (document.getElementById("mdp").value != document.getElementById("mdpc").value) {
+    if (document.getElementById("password").value != document.getElementById("mdpc").value) {
         document.getElementById("mdpc").setCustomValidity("Les mots de passes ne correspondent pas.");
     }
     else {
         document.getElementById("mdpc").setCustomValidity('');
     }
 };
+function emailConfirm(){
+    var email = document.getElementById("email").value
+    $.ajax({
+        url: '?action=checkEmail',
+        data: "email=" + email,
+        type: 'GET',
+        success:function(nblEmail){
+            if(nblEmail > 0){
+                document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.");
+            }
+            else{
+                document.getElementById("email").setCustomValidity("");
+            }
+        }
+    })
+}
+function nameConfirm(){
+    $.ajax({
+        url: '?action=checkName',
+        data: "name=" + document.getElementById("name").value,
+        type: 'GET',
+        success:function(nblName){
+            if(nblName > 0){
+                document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé");
+            }
+            else{
+                document.getElementById("name").setCustomValidity("");
+            }
+        }
+    })
+}
 
 $(document).ready(function () {
     var table = $('#userList').DataTable({
@@ -30,8 +61,13 @@ $(document).ready(function () {
                 extend: 'selectedSingle',
                 text: "Modifier l'utilisateur",
                 action: function (e, dt, node, config) {
-                    var id = table.row({ selected: true }).data()[0];
-                    window.location.href = ('?action=ModifierU?id=' + id)
+                    if(table.row({ selected: true }).data()[4] == "Membre actif"){
+                        var id = table.row({ selected: true }).data()[0];
+                        window.location.href = ('?action=ModifierU&id=' + id)
+                    }
+                    else{
+                        alert("Vous tentez de modifier un utilisateur supprimé, c'est impossible.");
+                    }
                 }
             },
             {
@@ -40,10 +76,14 @@ $(document).ready(function () {
                 action: function (e, dt, node, config) {
                     var id = table.row({ selected: true }).data()[0];
                     $.ajax({
-                        url: '?action=SupprimerU',
-                        data: 'idDelete=' + id,
-                        type: 'POST'
+                        url: '?action=deleteU',
+                        data: 'id=' + id,
+                        type: 'GET',
+                        success: function(){
+                            window.location.href = ('?action=utilisateurs')
+                        }
                     })
+
                 }
             },
             {
