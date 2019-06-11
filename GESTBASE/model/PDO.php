@@ -14,7 +14,10 @@ function connexionBDD(){
 }
 function nbLignesRequete($requete){
 	$connexion = connexionBDD();
-	$req=$connexion->query($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
-	return $req->rowcount();
+	$req=$connexion->prepare($requete); // on va chercher tous les membres de la table qu'on trie par ordre croissant
+    $req->execute();
+    
+    $result = $req->rowcount();
+    return $result;
 }
 ?>

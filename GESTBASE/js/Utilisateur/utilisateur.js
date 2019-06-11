@@ -12,10 +12,12 @@ function emailConfirm(){
         url: '?action=checkEmail',
         data: "email=" + email,
         type: 'GET',
-        success:function(data){
-            alert("succès " + data);
-            if(data >= 1){
-                document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.")
+        success:function(nblEmail){
+            if(nblEmail > 0){
+                document.getElementById("email").setCustomValidity("Cet email est déjà utilisé.");
+            }
+            else{
+                document.getElementById("email").setCustomValidity("");
             }
         }
     })
@@ -25,10 +27,13 @@ function nameConfirm(){
         url: '?action=checkName',
         data: "name=" + document.getElementById("name").value,
         type: 'GET',
-        success:function(data){
-            alert(data);
-            if(data >= 1){
-                document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé")
+        success:function(nblName){
+            alert(nblName);
+            if(nblName > 0){
+                document.getElementById("name").setCustomValidity("Cet nom est déjà utilisé");
+            }
+            else{
+                document.getElementById("name").setCustomValidity("");
             }
         }
     })
