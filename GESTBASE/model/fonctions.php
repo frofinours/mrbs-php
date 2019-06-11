@@ -42,8 +42,8 @@ function deleteUserId($id)
 }
 function checkEmail($email)
 {
-	$result = connexionBDD()->exec('SELECT count(*) FROM mrbs_users WHERE email = '.$email.'');
-	if ($result->fetchColumn() > 0)
+	$result = connexionBDD()->exec('SELECT id FROM mrbs_users WHERE email = '.$email.'');
+	if ($result != false)
 	{
 		return 1;
 	}
@@ -55,14 +55,14 @@ function checkEmail($email)
 }
 function checkName($name)
 {
-	$result = connexionBDD()->exec('SELECT count(*) FROM mrbs_users WHERE name = '.$name.'');
-	if ($result->fetchColumn() > 0)
+	$result = connexionBDD()->exec('SELECT id FROM mrbs_users WHERE name = '.$name.'');
+	if ($result == false)
 	{
-		return 1;
+		return 0;
 	}
 	else
 	{
-		return 0;
+		return 1;
 	}
 	return $result;
 }
