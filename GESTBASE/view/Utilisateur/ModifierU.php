@@ -18,9 +18,9 @@ while ($user = $usertoEdit->fetch())
 <div class="form">
         <h1>Modifier un utilisateur</h1>
         <form id="formulaireModifierU" method="post" action="?action=ModifierU">
-            <input value='<?php $user['id']?>' type="hidden" id="id" name="id">
-            <label>Nom </label><input onkeyup="nameConfirm()" value='<?php $user['name']?>' type="text" id="name" name="name" required pattern="[A-Za-z]{3,20}" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
-            <label>Email </label><input onkeyup="emailConfirm()" value='<?php $user['email']?>' type="email" id="email" name="email" required><br /><br />
+            <input value='<?php echo $user['id']?>' type="hidden" id="id" name="id">
+            <label>Nom </label><input onkeyup="nameConfirm()" value='<?php echo $user['name']?>' type="text" id="name" name="name" required pattern="[A-Za-z]{3,20}" title="Le nom doit faire au moins 3 caractères sans chiffres ou caractères spéciaux."><br /><br />
+            <label>Email </label><input onkeyup="emailConfirm()" value='<?php echo $user['email']?>' type="email" id="email" name="email" required><br /><br />
             <label>Role </label>
             <select id="role" name="role">
                 <option value="0">Utilisateur</option>
